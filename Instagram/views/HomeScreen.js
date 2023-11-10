@@ -11,7 +11,7 @@ import {
 
 export default function HomeScreen() {
   const [number, setNumber] = useState(100);
-   const [isPink, setIsPink] = useState(false);
+  const [isPink, setIsPink] = useState(false);
 
   const handleShape = () => {
     setIsPink(!isPink);
@@ -26,7 +26,7 @@ export default function HomeScreen() {
     { image: require("../assets/story-1.png"), text: "chanh.aaa" },
     { image: require("../assets/story-2.png"), text: "hoandat.td" },
     { image: require("../assets/story-3.png"), text: "chanh.aaa" },
-    { image: require("../assets/story-1.png"), text: "chanh.aaa" },
+    { image: require("../assets/story-4.png"), text: "chanh.aaa" },
     { image: require("../assets/story-2.png"), text: "chanh.aaa" },
     { image: require("../assets/story-3.png"), text: "chanh.aaa" },
     { image: require("../assets/story-1.png"), text: "chanh.aaa" },
@@ -122,7 +122,7 @@ export default function HomeScreen() {
           <Text style={styles.text_likes}>{number} Likes</Text>
           <View style={styles.caption}>
             <Text style={styles.text_caption}>
-              <Text style={styles.boldText}>Ruffles{" "}</Text>
+              <Text style={styles.boldText}>Ruffles </Text>
               <Text>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt
@@ -132,8 +132,8 @@ export default function HomeScreen() {
           <Text style={styles.text_time}>View all comments</Text>
           <View style={styles.commentContainer}>
             <Image
-              source={require("../assets/story-1.png")}
-              style={styles.image_avatar}
+              source={require("../assets/Avatar.png")}
+              style={styles.image_avatar_2}
             />
             <TextInput
               style={styles.commentInput}
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
   },
   commentInput: {
     borderRadius: 8,
-    padding: 10,
+    padding: 8,
     flex: 1,
   },
   text_time: {
@@ -266,5 +266,9 @@ const styles = StyleSheet.create({
   },
   text_caption: {
     paddingLeft: 10,
+  },
+  image_avatar_2: {
+    width: 35,
+    height: 35,
   },
 });
