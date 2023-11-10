@@ -9,34 +9,14 @@ import {
   TextInput,
 } from "react-native";
 
-export default function HomeScreen() {
-  const [number, setNumber] = useState(100);
-  const [isPink, setIsPink] = useState(false);
-
-  const handleShape = () => {
-    setIsPink(!isPink);
-    if (isPink) {
-      setNumber(number - 1);
-    } else {
-      setNumber(number + 1);
-    }
+export default function HomeScreen({ navigation }) {
+  const goMessScreen = () => {
+    navigation.navigate("MessScreen");
   };
-
-  const stories = [
-    { image: require("../assets/story-1.png"), text: "chanh.aaa" },
-    { image: require("../assets/story-2.png"), text: "hoandat.td" },
-    { image: require("../assets/story-3.png"), text: "chanh.aaa" },
-    { image: require("../assets/story-4.png"), text: "chanh.aaa" },
-    { image: require("../assets/story-2.png"), text: "chanh.aaa" },
-    { image: require("../assets/story-3.png"), text: "chanh.aaa" },
-    { image: require("../assets/story-1.png"), text: "chanh.aaa" },
-    { image: require("../assets/story-2.png"), text: "chanh.aaa" },
-    { image: require("../assets/story-3.png"), text: "chanh.aaa" },
-  ];
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.section1}>
+      <View style={styles.home_header}>
         <Image
           source={require("../assets/Logo dropdown.png")}
           style={styles.logo_insta}
@@ -46,115 +26,206 @@ export default function HomeScreen() {
             source={require("../assets/shape-icon.png")}
             style={styles.icon}
           />
-          <Image
-            source={require("../assets/mess-icon.png")}
-            style={styles.icon}
-          />
+          <TouchableOpacity onPress={goMessScreen}>
+            <Image
+              source={require("../assets/mess-icon.png")}
+              style={styles.icon}
+            />
+          </TouchableOpacity>
         </View>
       </View>
 
-      <ScrollView horizontal={true}>
-        <View style={styles.section2}>
-          {stories.map((story, index) => (
-            <View style={styles.story} key={index}>
-              <Image source={story.image} style={styles.story_image} />
-              <Text style={styles.text}>{story.text}</Text>
-            </View>
-          ))}
-        </View>
-      </ScrollView>
+      <View style={styles.home_story}>
+        {stories.map((story, index) => (
+          <View style={styles.story} key={index}>
+            <Image source={story.image} style={styles.story_image} />
+            <Text style={styles.text}>{story.text}</Text>
+          </View>
+        ))}
+      </View>
+      {/* Post */}
+      <View>
+        {/* Post 1 */}
+        <Post
+          avatarSource={require("../assets/story-1.png")}
+          postName="Rufles"
+          isSponsored={true}
+          postText="Được tài trợ"
+          postImageSource={require("../assets/post-1.png")}
+          postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt"
+          postTime="30 minutes ago"
+        />
+        {/* Post 2 */}
+        <Post
+          avatarSource={require("../assets/story-2.png")}
+          postName="Rufles"
+          isSponsored={true}
+          postText="Được tài trợ"
+          postImageSource={require("../assets/post-2.png")}
+          postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt"
+          postTime="60 minutes ago"
+        />
 
-      <View style={styles.section3}>
-        {/* Bài viết 1 */}
-        <View style={styles.post_header}>
-          <View style={styles.avatar}>
-            <Image
-              source={require("../assets/story-1.png")}
-              style={styles.image_avatar}
-            />
-            <View style={styles.text1}>
-              <View style={styles.ruffles}>
-                <Text style={styles.text2}>Ruffles</Text>
-                <Image
-                  source={require("../assets/verified.png")}
-                  style={styles.image_verified}
-                />
-              </View>
-              <Text>Sponsored</Text>
-            </View>
-          </View>
-        </View>
-        <View style={styles.post_image}>
-          <Image
-            source={require("../assets/032_AshleyMatt 1.png")}
-            style={styles.image_post}
-          />
-        </View>
-        <View style={styles.post_info}>
-          <View style={styles.icon_postinfo}>
-            <View style={styles.iconGroupLeft}>
-              <TouchableOpacity onPress={handleShape}>
-                <Image
-                  source={
-                    isPink
-                      ? require("../assets/shape-pink-icon.png")
-                      : require("../assets/shape-icon.png")
-                  }
-                  style={styles.icon_post}
-                />
-              </TouchableOpacity>
-              <Image
-                source={require("../assets/cmt-icon.png")}
-                style={styles.icon_post}
-              />
-              <Image
-                source={require("../assets/chat-icon.png")}
-                style={styles.icon_post}
-              />
-            </View>
-            <View style={styles.iconGroupRight}>
-              <Image
-                source={require("../assets/share-icon.png")}
-                style={styles.icon_post}
-              />
-            </View>
-          </View>
-          <Text style={styles.text_likes}>{number} Likes</Text>
-          <View style={styles.caption}>
-            <Text style={styles.text_caption}>
-              <Text style={styles.boldText}>Ruffles </Text>
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt
-              </Text>
-            </Text>
-          </View>
-          <Text style={styles.text_time}>View all comments</Text>
-          <View style={styles.commentContainer}>
-            <Image
-              source={require("../assets/Avatar.png")}
-              style={styles.image_avatar_2}
-            />
-            <TextInput
-              style={styles.commentInput}
-              placeholder="Thêm bình luận ..."
-              placeholderTextColor="#888"
-            />
-          </View>
-          <Text style={styles.text_time}>30 minutes ago</Text>
-        </View>
-        {/* Bài viết 2 */}
+        {/* Post 3 */}
+        <Post
+          avatarSource={require("../assets/story-3.png")}
+          postName="An"
+          isSponsored={true}
+          postText="Được tài trợ"
+          postImageSource={require("../assets/post-3.png")}
+          postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt"
+          postTime="30 minutes ago"
+        />
+        {/* Post 4 */}
+        <Post
+          avatarSource={require("../assets/story-1.png")}
+          postName="Duys"
+          isSponsored={true}
+          postText="Được tài trợ"
+          postImageSource={require("../assets/post-4.png")}
+          postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt"
+          postTime="30 minutes ago"
+        />
+
+        {/* Post 5 */}
+        <Post
+          avatarSource={require("../assets/story-1.png")}
+          postName="Chanh"
+          isSponsored={true}
+          postText="Được tài trợ"
+          postImageSource={require("../assets/post-5.png")}
+          postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt"
+          postTime="20 minutes ago"
+        />
       </View>
     </ScrollView>
   );
 }
+
+const Post = ({
+  avatarSource,
+  postImageSource,
+  isSponsored,
+  postName,
+  postText,
+  postCaption,
+  postTime,
+}) => {
+  const [number, setNumber] = useState(100);
+  const [isPink, setIsPink] = useState(false);
+  const [showComment, setShowComment] = useState(false);
+
+  const handleShape = () => {
+    setIsPink(!isPink);
+    setNumber(isPink ? number - 1 : number + 1);
+  };
+
+  return (
+    <View style={styles.home_post}>
+      <View style={styles.post_header}>
+        <View style={styles.avatar}>
+          <Image source={avatarSource} style={styles.image_avatar} />
+          <View style={styles.text1}>
+            <View style={styles.ruffles}>
+              <Text style={styles.text2}>{postName}</Text>
+              {isSponsored && (
+                <Image
+                  source={require("../assets/verified.png")}
+                  style={styles.image_verified}
+                />
+              )}
+            </View>
+            {isSponsored && <Text>{postText}</Text>}
+          </View>
+        </View>
+      </View>
+      <View style={styles.post_image}>
+        <Image source={postImageSource} style={styles.image_post} />
+      </View>
+      <View style={styles.post_info}>
+        <View style={styles.icon_postinfo}>
+          <View style={styles.iconGroupLeft}>
+            <TouchableOpacity onPress={handleShape}>
+              <Image
+                source={
+                  isPink
+                    ? require("../assets/shape-pink-icon.png")
+                    : require("../assets/shape-icon.png")
+                }
+                style={styles.icon_post}
+              />
+            </TouchableOpacity>
+            <Image
+              source={require("../assets/cmt-icon.png")}
+              style={styles.icon_post}
+            />
+            <Image
+              source={require("../assets/chat-icon.png")}
+              style={styles.icon_post}
+            />
+          </View>
+          <View style={styles.iconGroupRight}>
+            <Image
+              source={require("../assets/share-icon.png")}
+              style={styles.icon_post}
+            />
+          </View>
+        </View>
+        <Text style={styles.text_likes}>{number} Likes</Text>
+        <View style={styles.caption}>
+          <Text style={styles.text_caption}>
+            <Text style={styles.boldText}>{postName} </Text>
+            <Text>{postCaption}</Text>
+          </Text>
+        </View>
+        <Text
+          style={styles.text_time}
+          onPress={() => setShowComment(!showComment)}
+        >
+          View all comments
+        </Text>
+        {showComment && <Text>Xinh dep qua</Text>}
+
+        <View style={styles.commentContainer}>
+          <Image
+            source={require("../assets/Avatar.png")}
+            style={styles.image_avatar_2}
+          />
+          <TextInput
+            style={styles.commentInput}
+            placeholder="Thêm bình luận ..."
+            placeholderTextColor="#888"
+          />
+        </View>
+        <Text style={styles.text_time}>{postTime}</Text>
+      </View>
+    </View>
+  );
+};
+
+const stories = [
+  { image: require("../assets/story-1.png"), text: "chanh.aaa" },
+  { image: require("../assets/story-2.png"), text: "hoandat.td" },
+  { image: require("../assets/story-3.png"), text: "chanh.aaa" },
+  { image: require("../assets/story-1.png"), text: "chanh.aaa" },
+  { image: require("../assets/story-2.png"), text: "chanh.aaa" },
+  { image: require("../assets/story-3.png"), text: "chanh.aaa" },
+  { image: require("../assets/story-1.png"), text: "chanh.aaa" },
+  { image: require("../assets/story-2.png"), text: "chanh.aaa" },
+  { image: require("../assets/story-3.png"), text: "chanh.aaa" },
+];
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
   },
-  section1: {
+  home_header: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -162,10 +233,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
   },
-  section2: {
+  home_story: {
     flexDirection: "row",
   },
-  section3: {
+  home_post: {
     flexDirection: "column",
     justifyContent: "space-between",
   },
@@ -260,6 +331,7 @@ const styles = StyleSheet.create({
   text_time: {
     paddingLeft: 10,
     color: "#888",
+    marginBottom: 5,
   },
   boldText: {
     fontWeight: "bold",
