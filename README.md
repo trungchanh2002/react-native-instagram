@@ -18,6 +18,14 @@ Follow these steps to run the project locally:
 - React Native CLI
 
 ### Installation
-1. Clone this repository.
-2. Install dependencies using `npm install` or `yarn install`.
-3. Run the project using `react-native run-android` or `react-native run-ios`.
+1. Clone this repository 
+`https://github.com/trungchanh2002/react-native-instagram.git`
+2. Install dependencies using
+`npm install @react-navigation/native`
+`npm install @react-navigation/stack`
+`npm install @react-navigation/bottom-tabs`
+`npm install @react-navigation/native-stack`
+`npm install expo-av`
+3. Run the project using 
+`npm run web`
+
