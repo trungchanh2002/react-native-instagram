@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  FlatList,
 } from "react-native";
 
 export default function HomeScreen({ navigation }) {
@@ -14,94 +15,113 @@ export default function HomeScreen({ navigation }) {
     navigation.navigate("MessScreen");
   };
 
+  const stories = [
+    { id: 1, image: require("../assets/story-0.png"), text: "chanh.dev" },
+    { id: 2, image: require("../assets/story-2.png"), text: "messi.lion" },
+    { id: 3, image: require("../assets/story-3.png"), text: "cristian.dev" },
+    { id: 4, image: require("../assets/story-4.png"), text: "daotron.mm" },
+    { id: 5, image: require("../assets/story-5.png"), text: "chanh.aaa" },
+    { id: 6, image: require("../assets/story-3.png"), text: "chanh.aaa" },
+    { id: 7, image: require("../assets/story-1.png"), text: "chanh.aaa" },
+    { id: 8, image: require("../assets/story-2.png"), text: "chanh.aaa" },
+    { id: 9, image: require("../assets/story-3.png"), text: "chanh.aaa" },
+  ];
+
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.home_header}>
-        <Image
-          source={require("../assets/Logo dropdown.png")}
-          style={styles.logo_insta}
-        />
-        <View style={styles.iconContainer}>
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.home_header}>
           <Image
-            source={require("../assets/shape-icon.png")}
-            style={styles.icon}
+            source={require("../assets/Logo dropdown.png")}
+            style={styles.logo_insta}
           />
-          <TouchableOpacity onPress={goMessScreen}>
+          <View style={styles.iconContainer}>
             <Image
-              source={require("../assets/mess-icon.png")}
+              source={require("../assets/shape-icon.png")}
               style={styles.icon}
             />
-          </TouchableOpacity>
-        </View>
-      </View>
-
-      <View style={styles.home_story}>
-        {stories.map((story, index) => (
-          <View style={styles.story} key={index}>
-            <Image source={story.image} style={styles.story_image} />
-            <Text style={styles.text}>{story.text}</Text>
+            <TouchableOpacity onPress={goMessScreen}>
+              <Image
+                source={require("../assets/mess-icon.png")}
+                style={styles.icon}
+              />
+            </TouchableOpacity>
           </View>
-        ))}
-      </View>
-      {/* Post */}
-      <View>
-        {/* Post 1 */}
-        <Post
-          avatarSource={require("../assets/story-1.png")}
-          postName="Rufles"
-          isSponsored={true}
-          postText="Được tài trợ"
-          postImageSource={require("../assets/post-1.png")}
-          postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt"
-          postTime="30 minutes ago"
-        />
-        {/* Post 2 */}
-        <Post
-          avatarSource={require("../assets/story-2.png")}
-          postName="Rufles"
-          isSponsored={true}
-          postText="Được tài trợ"
-          postImageSource={require("../assets/post-2.png")}
-          postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt"
-          postTime="60 minutes ago"
-        />
+        </View>
 
-        {/* Post 3 */}
-        <Post
-          avatarSource={require("../assets/story-3.png")}
-          postName="An"
-          isSponsored={true}
-          postText="Được tài trợ"
-          postImageSource={require("../assets/post-3.png")}
-          postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt"
-          postTime="30 minutes ago"
-        />
-        {/* Post 4 */}
-        <Post
-          avatarSource={require("../assets/story-1.png")}
-          postName="Duys"
-          isSponsored={true}
-          postText="Được tài trợ"
-          postImageSource={require("../assets/post-4.png")}
-          postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt"
-          postTime="30 minutes ago"
-        />
+        <View>
+          <FlatList
+            data={stories}
+            keyExtractor={(item) => item.id.toString()}
+            horizontal={true}
+            renderItem={({ item }) => (
+              <View style={styles.home_story}>
+                <Image source={item.image} style={styles.story_image} />
+                <Text style={styles.textStyle}>{item.text}</Text>
+              </View>
+            )}
+          />
+        </View>
 
-        {/* Post 5 */}
-        <Post
-          avatarSource={require("../assets/story-1.png")}
-          postName="Chanh"
-          isSponsored={true}
-          postText="Được tài trợ"
-          postImageSource={require("../assets/post-5.png")}
-          postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        <View>
+          {/* Post 1 */}
+          <Post
+            avatarSource={require("../assets/story-1.png")}
+            postName="Rufles"
+            isSponsored={true}
+            postText="Được tài trợ"
+            postImageSource={require("../assets/post-1.png")}
+            postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt"
-          postTime="20 minutes ago"
-        />
+            postTime="30 minutes ago"
+          />
+          {/* Post 2 */}
+          <Post
+            avatarSource={require("../assets/story-2.png")}
+            postName="Rufles"
+            isSponsored={true}
+            postText="Được tài trợ"
+            postImageSource={require("../assets/post-2.png")}
+            postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt"
+            postTime="60 minutes ago"
+          />
+
+          {/* Post 3 */}
+          <Post
+            avatarSource={require("../assets/story-3.png")}
+            postName="An"
+            isSponsored={true}
+            postText="Được tài trợ"
+            postImageSource={require("../assets/post-3.png")}
+            postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt"
+            postTime="30 minutes ago"
+          />
+          {/* Post 4 */}
+          <Post
+            avatarSource={require("../assets/story-1.png")}
+            postName="Duys"
+            isSponsored={true}
+            postText="Được tài trợ"
+            postImageSource={require("../assets/post-4.png")}
+            postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt"
+            postTime="30 minutes ago"
+          />
+
+          {/* Post 5 */}
+          <Post
+            avatarSource={require("../assets/story-1.png")}
+            postName="Chanh"
+            isSponsored={true}
+            postText="Được tài trợ"
+            postImageSource={require("../assets/post-5.png")}
+            postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt"
+            postTime="20 minutes ago"
+          />
+        </View>
       </View>
     </ScrollView>
   );
@@ -189,11 +209,13 @@ const Post = ({
         >
           View all comments
         </Text>
-        {showComment && <Text>Xinh dep qua</Text>}
+        {showComment && (
+          <Text style={styles.text_likes}>{stories[0].text} Nice</Text>
+        )}
 
         <View style={styles.commentContainer}>
           <Image
-            source={require("../assets/Avatar.png")}
+            source={require("../assets/story-0.png")}
             style={styles.image_avatar_2}
           />
           <TextInput
@@ -208,21 +230,8 @@ const Post = ({
   );
 };
 
-const stories = [
-  { image: require("../assets/story-1.png"), text: "chanh.aaa" },
-  { image: require("../assets/story-2.png"), text: "hoandat.td" },
-  { image: require("../assets/story-3.png"), text: "chanh.aaa" },
-  { image: require("../assets/story-1.png"), text: "chanh.aaa" },
-  { image: require("../assets/story-2.png"), text: "chanh.aaa" },
-  { image: require("../assets/story-3.png"), text: "chanh.aaa" },
-  { image: require("../assets/story-1.png"), text: "chanh.aaa" },
-  { image: require("../assets/story-2.png"), text: "chanh.aaa" },
-  { image: require("../assets/story-3.png"), text: "chanh.aaa" },
-];
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
   },
   home_header: {
@@ -232,9 +241,6 @@ const styles = StyleSheet.create({
     padding: 12,
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
-  },
-  home_story: {
-    flexDirection: "row",
   },
   home_post: {
     flexDirection: "column",
@@ -247,6 +253,10 @@ const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: "row",
   },
+  textStyle: {
+    fontSize: 15,
+    fontWeight: "500",
+  },
   icon: {
     marginLeft: 20,
     width: 24,
@@ -256,13 +266,11 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
   },
-  story: {
+  home_story: {
+    flex: 1,
     flexDirection: "column",
     alignItems: "center",
-    padding: 5,
-  },
-  text: {
-    fontSize: 15,
+    padding: 4,
   },
   image_avatar: {
     width: 40,
@@ -327,6 +335,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 8,
     flex: 1,
+    marginRight: 10
   },
   text_time: {
     paddingLeft: 10,

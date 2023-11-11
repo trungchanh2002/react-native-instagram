@@ -4,7 +4,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-
 import HomeScreen from "./views/HomeScreen";
 import SearchScreen from "./views/SearchScreen";
 import AddScreen from "./views/AddScreen";
@@ -33,7 +32,7 @@ export default function App() {
 function TabsComponent() {
   const [isReelsSelected, setIsReelsSelected] = useState(false);
   return (
-    <Tab.Navigator
+    <Tab.Navigator initialRouteName="Search"
       screenOptions={{ headerShown: false }}
       tabBarOptions={{
         showLabel: false,
