@@ -136,7 +136,7 @@ const Post = ({
   postCaption,
   postTime,
 }) => {
-  const [number, setNumber] = useState(100);
+  const [number, setNumber] = useState(700);
   const [isPink, setIsPink] = useState(false);
   const [showComment, setShowComment] = useState(false);
 
@@ -210,7 +210,13 @@ const Post = ({
           View all comments
         </Text>
         {showComment && (
-          <Text style={styles.text_likes}>{stories[0].text} Nice</Text>
+          <View>
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.text_likes}>Ronaldo </Text>
+              <Text>Happy New Year 🤩🤩🤩</Text>
+            </View>
+            <Text style={styles.text_likes}>Messi Happy Birth day❤️❤️❤️ </Text>
+          </View>
         )}
 
         <View style={styles.commentContainer}>
@@ -335,7 +341,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 8,
     flex: 1,
-    marginRight: 10
+    marginRight: 10,
   },
   text_time: {
     paddingLeft: 10,
