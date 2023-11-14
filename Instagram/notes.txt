@@ -19,6 +19,15 @@ const styles = StyleSheet.create({
   },
 });
 
+
+      <View>
+        {/* <Image
+          style={styles.image}
+          source={images[num].image}
+          {...panResponder.panHandlers}item
+        /> */}
+      </View>
+
 npm install @react-navigation/native
 npm install @react-navigation/stack
 npm install @react-navigation/bottom-tabs

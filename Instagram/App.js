@@ -4,12 +4,14 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import HomeScreen from "./views/HomeScreen";
-import SearchScreen from "./views/SearchScreen";
-import AddScreen from "./views/AddScreen";
-import ReelsScreen from "./views/ReelsScreen";
-import AccountScreen from "./views/AccountScreen";
-import MessScreen from "./views/MessScreen";
+import HomeScreen from "./components/HomeScreen";
+import SearchScreen from "./components/SearchScreen";
+import AddScreen from "./components/AddScreen";
+import ReelsScreen from "./components/ReelsScreen";
+import AccountScreen from "./components/AccountScreen";
+import MessScreen from "./components/MessScreen";
+import TestScreen from "./components/TestScreen";
+import StoryScreen from "./components/StoryScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -17,13 +19,17 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+      // initialRouteName="TestScreen"
+      >
         <Stack.Screen
           name="Tabs"
           component={TabsComponent}
           options={{ headerShown: false }}
         />
         <Stack.Screen name="MessScreen" component={MessScreen} />
+        <Stack.Screen name="TestScreen" component={TestScreen} />
+        <Stack.Screen name="StoryScreen" component={StoryScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -32,7 +38,8 @@ export default function App() {
 function TabsComponent() {
   const [isReelsSelected, setIsReelsSelected] = useState(false);
   return (
-    <Tab.Navigator initialRouteName="Search"
+    <Tab.Navigator
+      // initialRouteName="Home"
       screenOptions={{ headerShown: false }}
       tabBarOptions={{
         showLabel: false,
