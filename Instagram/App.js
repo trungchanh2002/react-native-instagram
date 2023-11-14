@@ -4,14 +4,14 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import HomeScreen from "./views/HomeScreen";
-import SearchScreen from "./views/SearchScreen";
-import AddScreen from "./views/AddScreen";
-import ReelsScreen from "./views/ReelsScreen";
-import AccountScreen from "./views/AccountScreen";
-import MessScreen from "./views/MessScreen";
-import TestScreen from "./views/TestScreen";
-import StoryScreen from "./views/StoryScreen";
+import HomeScreen from "./components/HomeScreen";
+import SearchScreen from "./components/SearchScreen";
+import AddScreen from "./components/AddScreen";
+import ReelsScreen from "./components/ReelsScreen";
+import AccountScreen from "./components/AccountScreen";
+import MessScreen from "./components/MessScreen";
+import TestScreen from "./components/TestScreen";
+import StoryScreen from "./components/StoryScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
