@@ -20,7 +20,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-      // initialRouteName="TestScreen"
+      // initialRouteName="StoryScreen"
       >
         <Stack.Screen
           name="Tabs"
