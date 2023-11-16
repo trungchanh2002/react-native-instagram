@@ -3,7 +3,7 @@
 - Phan Lương Trung Chánh
 
 ## Design Preview
-Xem thiết kế trên Figma: [Instagram UI Design - React Native](https://www.figma.com/file/nSqiWZO6JXLertHxkC6bhS/Instagram-UI-Design?type=design&node-id=2162-6021&mode=design&t=aMFHfnao0SwJT7Xh- 0)
+Xem thiết kế trên Figma: [Instagram UI Design - React Native](https://www.figma.com/file/nSqiWZO6JXLErtHxkC6bhS/Instagram-UI-Design?type=design&node-id=2162-6021&mode=design&t=aMFHfnao0SwJT7Xh-0)
 
 ### ### Installation
 1. Clone this repository `https://github.com/trungchanh2002/react-native-instagram.git`
