@@ -1,4 +1,4 @@
-# React Native Instagram
+## React Native Instagram
 - Nguyễn Nhất An
 - Phan Lương Trung Chánh
 
