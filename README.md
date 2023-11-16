@@ -10,4 +10,4 @@ Check out the design on Figma: [Instagram UI Design - React Native](https://www.
 2. Install dependencies using `npm install`
 3. Install Api `npm install -g json-server`, `json-server --watch data.json`
 4. Run the project using `npm run web`
-5. Instal extension Mobile simulator
+5. Install extension Mobile simulator
