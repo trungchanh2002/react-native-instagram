@@ -12,6 +12,9 @@ import AccountScreen from "./components/AccountScreen";
 import MessScreen from "./components/MessScreen";
 import TestScreen from "./components/TestScreen";
 import StoryScreen from "./components/StoryScreen";
+import NotificationScreen from "./components/NotificationScreen";
+import SignUpScreen from "./components/SignUpScreen";
+import LoginScreen from "./components/LoginScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -20,33 +23,36 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-      // initialRouteName="TestScreen"
+       initialRouteName="LoginScreen"
       >
         <Stack.Screen
           name="Tabs"
           component={TabsComponent}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name="NotificationScreen" component={NotificationScreen} />
         <Stack.Screen name="MessScreen" component={MessScreen} />
         <Stack.Screen name="TestScreen" component={TestScreen} />
         <Stack.Screen name="StoryScreen" component={StoryScreen} />
+        <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-function TabsComponent() {
+export function TabsComponent() {
   const [isReelsSelected, setIsReelsSelected] = useState(false);
   return (
     <Tab.Navigator
-      // initialRouteName="Home"
+       initialRouteName="LoginScreen"
       screenOptions={{ headerShown: false }}
       tabBarOptions={{
         showLabel: false,
       }}
     >
       <Tab.Screen
-        name="Home"
+        name="HomeScreen"
         component={HomeScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
