@@ -19,18 +19,17 @@ const styles = StyleSheet.create({
   },
 });
 
-<View>
+
+      <View>
         {/* <Image
           style={styles.image}
           source={images[num].image}
           {...panResponder.panHandlers}item
         /> */}
-</View>
+      </View>
 
 npm install @react-navigation/native
 npm install @react-navigation/stack
 npm install @react-navigation/bottom-tabs
 npm install @react-navigation/native-stack
 npm install expo-av
-npm install -g json-server
-json-server --watch data.json
