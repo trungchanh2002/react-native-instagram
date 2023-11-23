@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   ScrollView,
@@ -67,7 +67,7 @@ export default function HomeScreen({ navigation }) {
           {/* Post 1 */}
           <Post
             avatarSource={require("../assets/story-1.png")}
-            postName="Huynh Tu"
+            postName="Ronaldo"
             isSponsored={true}
             postText="Được tài trợ"
             postImageSource={require("../assets/post-1.png")}
@@ -78,7 +78,7 @@ export default function HomeScreen({ navigation }) {
           {/* Post 2 */}
           <Post
             avatarSource={require("../assets/story-2.png")}
-            postName="Rufles"
+            postName="Messi"
             isSponsored={true}
             postText="Được tài trợ"
             postImageSource={require("../assets/post-2.png")}
@@ -90,7 +90,7 @@ export default function HomeScreen({ navigation }) {
           {/* Post 3 */}
           <Post
             avatarSource={require("../assets/story-3.png")}
-            postName="An"
+            postName="Mbappe"
             isSponsored={true}
             postText="Được tài trợ"
             postImageSource={require("../assets/post-3.png")}

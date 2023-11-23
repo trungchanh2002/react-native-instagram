@@ -10,30 +10,7 @@ import {
 } from "react-native";
 import { Video } from "expo-av";
 
-export default function ReelsScreen() {
-  const videos = [
-    {
-      id: 1,
-      video: require("../videos/video-1.mp4"),
-      avatarSource: require("../assets/story-1.png"),
-      like: "100",
-      comment: "100",
-      share: "200",
-      captinon: "Hello Ervery One",
-      name: "cristian.no",
-    },
-    {
-      id: 2,
-      video: require("../videos/video-2.mp4"),
-      avatarSource: require("../assets/story-2.png"),
-      like: "200",
-      comment: "200",
-      share: "2.4k",
-      captinon: "Xin chao moi nguoi!",
-      name: "messi.lionel",
-    },
-  ];
-
+export default function ReelsScreen({ navigation }) {
   const [num, setNum] = useState(0);
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -41,6 +18,14 @@ export default function ReelsScreen() {
   const [isPink, setIsPink] = useState(false);
   const [number, setNumber] = useState(140);
   const [isFollowed, setIsFollowed] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("blur", () => {
+      // In thông báo khi chuyển màn hình
+      videoRef.current.pauseAsync();
+    });
+    return unsubscribe;
+  }, [navigation]);
 
   const pause = () => {
     setIsClicked(true);
@@ -81,7 +66,59 @@ export default function ReelsScreen() {
     setIsFollowed(!isFollowed);
   };
   console.log(num);
-
+  const videos = [
+    {
+      id: 1,
+      video: require("../videos/video-1.mp4"),
+      avatarSource: require("../assets/story-1.png"),
+      like: "100",
+      comment: "100",
+      share: "200",
+      captinon: "Hello Ervery One",
+      name: "cristian.no",
+    },
+    {
+      id: 2,
+      video: require("../videos/video-2.mp4"),
+      avatarSource: require("../assets/story-2.png"),
+      like: "200",
+      comment: "200",
+      share: "2.4k",
+      captinon: "Xin chao moi nguoi!",
+      name: "messi.lionel",
+    },
+    {
+      id: 3,
+      video: require("../videos/video-3.mp4"),
+      avatarSource: require("../assets/story-2.png"),
+      like: "200",
+      comment: "200",
+      share: "2.4k",
+      captinon: "Xin chao moi nguoi!",
+      name: "messi.lionel",
+    },
+    {
+      id: 4,
+      video: require("../videos/video-4.mp4"),
+      avatarSource: require("../assets/story-2.png"),
+      like: "200",
+      comment: "200",
+      share: "2.4k",
+      captinon: "Xin chao moi nguoi!",
+      name: "messi.lionel",
+    },
+    {
+      id: 5,
+      video: require("../videos/video-5.mp4"),
+      avatarSource: require("../assets/story-2.png"),
+      like: "200",
+      comment: "200",
+      share: "2.4k",
+      captinon: "Xin chao moi nguoi!",
+      name: "messi.lionel",
+    },
+  ];
+  
   return (
     <View style={styles.container}>
       <View {...panResponder.panHandlers}>

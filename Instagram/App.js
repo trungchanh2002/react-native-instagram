@@ -8,10 +8,11 @@ import HomeScreen from "./components/HomeScreen";
 import SearchScreen from "./components/SearchScreen";
 import AddScreen from "./components/AddScreen";
 import ReelsScreen from "./components/ReelsScreen";
-import AccountScreen from "./components/AccountScreen";
+import ProfileScreen from "./components/ProfileScreen";
 import MessScreen from "./components/MessScreen";
 import TestScreen from "./components/TestScreen";
 import StoryScreen from "./components/StoryScreen";
+import UpdateScreen from "./components/UpdateScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -20,7 +21,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-      // initialRouteName="StoryScreen"
+      // initialRouteName="TestScreen"
       >
         <Stack.Screen
           name="Tabs"
@@ -30,16 +31,20 @@ export default function App() {
         <Stack.Screen name="MessScreen" component={MessScreen} />
         <Stack.Screen name="TestScreen" component={TestScreen} />
         <Stack.Screen name="StoryScreen" component={StoryScreen} />
+        <Stack.Screen
+          name="UpdateScreen"
+          component={UpdateScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
 function TabsComponent() {
-  const [isReelsSelected, setIsReelsSelected] = useState(false);
   return (
     <Tab.Navigator
-      // initialRouteName="Home"
+      initialRouteName="Home"
       screenOptions={{ headerShown: false }}
       tabBarOptions={{
         showLabel: false,
@@ -69,6 +74,7 @@ function TabsComponent() {
           ),
         }}
       />
+
       <Tab.Screen
         name="Add"
         component={AddScreen}
@@ -98,12 +104,12 @@ function TabsComponent() {
         }}
       />
       <Tab.Screen
-        name="Account"
-        component={AccountScreen}
+        name="Profile"
+        component={ProfileScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Image
-              source={require("./assets/Name=Mentions, State=default, Dark=no.png")}
+              source={require("./assets/account-icon.png")}
               style={{ tintColor: color, width: size, height: size }}
             />
           ),

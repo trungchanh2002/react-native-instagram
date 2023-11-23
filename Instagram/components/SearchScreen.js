@@ -21,7 +21,7 @@ export default function SearchScreen() {
     { id: 8, image: require("../assets/post-8.png") },
     { id: 9, image: require("../assets/post-9.png") },
   ];
-  
+
   return (
     <ScrollView>
       <View style={styles.container}>
