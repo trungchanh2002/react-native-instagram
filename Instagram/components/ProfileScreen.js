@@ -193,9 +193,9 @@ export default function ProfileScreen({ navigation }) {
               <Image source={images[3].image} style={styles.images} />
             </View>
             <View style={{ flexDirection: "row" }}>
-              <Image source={images[1].image} style={styles.images} />
-              <Image source={images[2].image} style={styles.images} />
-              <Image source={images[3].image} style={styles.images} />
+              <Image source={images[4].image} style={styles.images} />
+              <Image source={images[5].image} style={styles.images} />
+              <Image source={images[6].image} style={styles.images} />
             </View>
             <View style={{ flexDirection: "row" }}>
               <Image source={images[1].image} style={styles.images} />

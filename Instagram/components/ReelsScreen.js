@@ -21,8 +21,8 @@ export default function ReelsScreen({ navigation }) {
 
   useEffect(() => {
     const unsubscribe = navigation.addListener("blur", () => {
-      // In thông báo khi chuyển màn hình
-      videoRef.current.pauseAsync();
+      pause();
+      // videoRef.current.pauseAsync();
     });
     return unsubscribe;
   }, [navigation]);
@@ -65,6 +65,10 @@ export default function ReelsScreen({ navigation }) {
   const handleFollow = () => {
     setIsFollowed(!isFollowed);
   };
+  const handleCmt = () => {
+    navigation.navigate("CommentScreen");
+  };
+
   console.log(num);
   const videos = [
     {
@@ -118,17 +122,18 @@ export default function ReelsScreen({ navigation }) {
       name: "messi.lionel",
     },
   ];
-  
+
   return (
     <View style={styles.container}>
-      <View {...panResponder.panHandlers}>
+      <View style={{ flex: 1 }} {...panResponder.panHandlers}>
         <Video
           ref={videoRef}
-          style={styles.video}
+          style={styles.video_size}
           source={videos[num].video}
           shouldPlay={true}
           resizeMode="contain"
           isLooping
+          useNativeControls
         />
       </View>
       <View style={styles.location_add}>
@@ -153,11 +158,13 @@ export default function ReelsScreen({ navigation }) {
           <Text style={styles.text_icon}>{number}</Text>
         </View>
         <View style={styles.location_shape}>
-          <Image
-            source={require("../assets/cmt-white-icon.png")}
-            style={styles.icon}
-          />
-          <Text style={styles.text_icon}>{videos[num].comment}</Text>
+          <TouchableOpacity onPress={handleCmt}>
+            <Image
+              source={require("../assets/cmt-white-icon.png")}
+              style={styles.icon}
+            />
+            <Text style={styles.text_icon}>{videos[num].comment}</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.location_shape}>
           <Image
@@ -198,7 +205,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  video: {
+  video_size: {
     width: "100%",
     height: 700,
   },
@@ -260,8 +267,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1.5,
     borderColor: "white",
-    paddingVertical: 6 /* Tạo khoảng cách dọc */,
-    paddingHorizontal: 8 /* Tạo khoảng cách ngang */,
+    paddingVertical: 6,
+    paddingHorizontal: 8,
   },
   avatar_caption: {
     position: "absolute",

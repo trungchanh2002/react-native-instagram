@@ -30,7 +30,7 @@ export default function UpdateScreen({ route, navigation }) {
       .then((response) => response.json())
       .then((updatedUser) => {
         onUpdate(updatedUser);
-        alert("Thành công");
+        // alert("Thành công");
         navigation.goBack();
       })
       .catch((error) => console.error("Lỗi khi cập nhật dữ liệu:", error));
@@ -176,12 +176,14 @@ const styles = StyleSheet.create({
   label: {
     flex: 2.5,
     textAlign: "left",
+    fontSize: 15,
   },
   input: {
     flex: 7.5,
     height: 35,
     borderColor: "gray",
     borderBottomWidth: 1,
+    fontSize: 15,
   },
   text_switch: {
     fontWeight: "bold",
