@@ -34,3 +34,4 @@ npm install @react-navigation/native-stack
 npm install expo-av
 npm install -g json-server
 json-server --watch data.json
+Chanh

@@ -1,7 +1,18 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
   "profile": [
     {
       "id": 1,
@@ -27,6 +38,38 @@
       "id": 5,
       "name": "chanh5",
       "image": "https://res-console.cloudinary.com/dwpeef8zz/thumbnails/v1/image/upload/v1698732171/Y2xkLXNhbXBsZS01/grid_landscape"
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "username": "chanh_dev",
+      "name": "Trung Chanh",
+      "avatar": "story-1.png",
+      "post": "10",
+      "followers": "9,005",
+      "following": "88",
+      "bio": "This is Chanh's bio",
+      "hashtag": "hashtag_chanh",
+      "website": "facebook.com/trungchanh.kda",
+      "email": "trungchanh.kda@gmail.com",
+      "phone": "0787847379",
+      "gender": "Female"
+    },
+    {
+      "id": 2,
+      "username": "chanh_dev",
+      "name": "chanh1",
+      "avatar": "story-1.png",
+      "post": "50",
+      "followers": "5,102",
+      "following": "102",
+      "bio": "Xin chao",
+      "hashtag": "hashtag",
+      "website": "twitch.tv/ronaldo",
+      "email": "trungchanh.kda@gmail.com",
+      "phone": "0787847379",
+      "gender": "Male"
     }
   ]
 }

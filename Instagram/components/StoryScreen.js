@@ -12,8 +12,7 @@ import React, { useState, useEffect, useRef } from "react";
 export default function StoryScreen() {
   const handleItemClick = (index) => {
     if (index === 2) {
-      console.log("OK");
-      Alert.alert("OK");
+      alert("OK");
     }
   };
   const stories = [
@@ -36,12 +35,6 @@ export default function StoryScreen() {
   ];
 
   const scrollViewRef = useRef();
-
-  // useEffect(() => {
-  //   if (scrollViewRef.current) {
-  //     scrollViewRef.current.scrollToEnd({ animated: true });
-  //   }
-  // }, []);
 
   return (
     <ScrollView horizontal ref={scrollViewRef}>
