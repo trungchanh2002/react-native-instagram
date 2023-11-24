@@ -1,0 +1,138 @@
+{
+  "comments": [
+    {
+      "id": 1,
+      "avatar": "avatar_emp_1.png",
+      "username": "ronaldo",
+      "time": "1hour",
+      "comment": "This is a comment hahahahahahaha ❤️❤️❤️",
+      "like": "100"
+    },
+    {
+      "id": 2,
+      "avatar": "avatar_emp_2.png",
+      "username": "messi",
+      "time": "1hour",
+      "comment": "This is a comment hihihihihihi ❤️❤️❤️",
+      "like": "350"
+    },
+    {
+      "id": 3,
+      "avatar": "avatar_emp_3.png",
+      "username": "mbappe",
+      "time": "1hour",
+      "comment": "This is a comment hahahheheheheheha ❤️❤️❤️",
+      "like": "999"
+    },
+    {
+      "id": 4,
+      "avatar": "avatar_emp_4.png",
+      "username": "neymar",
+      "time": "1hour",
+      "comment": "This is a comment kkkkkkkkkkk ❤️❤️❤️",
+      "like": "137"
+    },
+    {
+      "id": 5,
+      "avatar": "avatar_emp_1.png",
+      "username": "chanh_dev",
+      "time": "1hour",
+      "comment": "This is a comment siuuuuuuuuuuuuuuuu ❤️❤️❤️",
+      "like": "156"
+    },
+    {
+      "id": 6,
+      "avatar": "avatar_emp_1.png",
+      "username": "chanh_dev",
+      "time": "1hour",
+      "comment": "This is a comment hahahahahahaha ❤️❤️❤️",
+      "like": "200"
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "username": "chanh.dev",
+      "name": "Chanh",
+      "avatar": "story-6.png",
+      "post": "10",
+      "followers": "9,005",
+      "following": "88",
+      "bio": "This is Chanh's bio",
+      "hashtag": "hashtag_chanh",
+      "website": "youtube.com/chanhdev",
+      "email": "trungchanh.kda@gmail.com",
+      "phone": "0787847379",
+      "gender": "Female"
+    },
+    {
+      "id": 2,
+      "username": "chanh_dev",
+      "name": "chanh1",
+      "avatar": "story-2.png",
+      "post": "50",
+      "followers": "5,102",
+      "following": "102",
+      "bio": "Xin chao",
+      "hashtag": "hashtag",
+      "website": "twitch.tv/ronaldo",
+      "email": "trungchanh.kda@gmail.com",
+      "phone": "0787847379",
+      "gender": "Male"
+    },
+    {
+      "id": 3,
+      "username": "chanh_dev",
+      "name": "chanh1",
+      "avatar": "story-3.png",
+      "post": "50",
+      "followers": "5,102",
+      "following": "102",
+      "bio": "Xin chao",
+      "hashtag": "hashtag",
+      "website": "twitch.tv/ronaldo",
+      "email": "trungchanh.kda@gmail.com",
+      "phone": "0787847379",
+      "gender": "Male"
+    },
+    {
+      "id": 5,
+      "avatar": "story-4.png"
+    },
+    {
+      "id": 6,
+      "avatar": "story-5.png"
+    },
+    {
+      "id": 7,
+      "avatar": "story-6.png"
+    },
+    {
+      "id": 8,
+      "avatar": "story-7.png"
+    }
+  ],
+  "stories": [
+    {
+      "id": 1,
+      "avatar": "avatar_emp_1.png",
+      "username": "messi",
+      "time": "1hour",
+      "image": "post-1.png"
+    },
+    {
+      "id": 2,
+      "avatar": "avatar_emp_2.png",
+      "username": "ronaldo",
+      "time": "2hour",
+      "image": "post-2.png"
+    },
+    {
+      "id": 3,
+      "avatar": "avatar_emp_2.png",
+      "username": "ronaldo",
+      "time": "3hour",
+      "image": "post-3.png"
+    }
+  ]
+}

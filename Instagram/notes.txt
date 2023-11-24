@@ -33,3 +33,9 @@ npm install @react-navigation/stack
 npm install @react-navigation/bottom-tabs
 npm install @react-navigation/native-stack
 npm install expo-av
+<<<<<<< HEAD:Instagram/notes.txt
+=======
+npm install -g json-server
+json-server --watch data.json
+Chanh
+>>>>>>> main:Instagram/note.txt

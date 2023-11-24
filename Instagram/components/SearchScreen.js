@@ -21,16 +21,31 @@ export default function SearchScreen() {
     { id: 8, image: require("../assets/post-8.png") },
     { id: 9, image: require("../assets/post-9.png") },
   ];
-  
+
   return (
     <ScrollView>
       <View style={styles.container}>
-        <View style={styles.searchContainer}>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View style={styles.searchContainer}>
+            <Image
+              source={require("../assets/search-icon.png")}
+              style={styles.icon}
+            />
+            <TextInput style={styles.input} placeholder="Tìm kiếm" />
+          </View>
           <Image
-            source={require("../assets/search-icon.png")}
-            style={styles.icon}
+            source={require("../assets/icon-live.png")}
+            style={{ width: 24, height: 24, margin: 5 }}
           />
-          <TextInput style={styles.input} placeholder="Tìm kiếm" />
+        </View>
+
+        <View style={{ flexDirection: "row", marginBottom: 5 }}>
+          <Text style={styles.text_br}>Shop</Text>
+          <Text style={styles.text_br}>Style</Text>
+          <Text style={styles.text_br}>Sport</Text>
+          <Text style={styles.text_br}>Fashion</Text>
+          <Text style={styles.text_br}>IGTV</Text>
+          <Text style={styles.text_br}>Auto Text</Text>
         </View>
 
         <View>
@@ -127,7 +142,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     borderColor: "#ccc",
-    borderRadius: 20,
+    borderRadius: 10,
     padding: 5,
     marginBottom: 8,
     marginTop: 8,
@@ -140,13 +155,25 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 30,
-    width: 320,
-    borderRadius: 20,
+    width: 300,
+    borderRadius: 10,
     padding: 5,
   },
   videoContainer: {},
   video: {
     width: 140,
     height: 140 * 2,
+  },
+  tap: {
+    marginHorizontal: 3,
+    width: 75,
+    height: 32,
+  },
+  text_br: {
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 5,
+    fontWeight: "500",
+    marginHorizontal: 5,
   },
 });
