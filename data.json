@@ -37,5 +37,34 @@
       "password": "an12345",
       "id": 4
     }
+  ],
+  "chats": [
+    {
+      "id": 1,
+      "avatar": "../assets/Avatar.png",  
+      "name": "Friend 1",
+      "messages": [
+        { "text": "Hello!", "sender": "Friend 1", "timestamp": 1637800000000 },
+        { "text": "Hi there!", "sender": "you", "timestamp": 1637801000000 }
+      ]
+    },
+    {
+      "id": 2,
+      "avatar": "../assets/Avatar.png",
+      "name": "Friend 2",
+      "messages": [
+        { "text": "Hey!", "sender": "you", "timestamp": 1637802000000 },
+        { "text": "How are you?", "sender": "Friend 2", "timestamp": 1637803000000 }
+      ]
+    },
+    {
+      "id": 3,
+      "avatar": "../assets/Avatar.png",
+      "name": "Friend 3",
+      "messages": [
+        { "text": "Hi!", "sender": "Friend 3", "timestamp": 1637804000000 },
+        { "text": "What's up?", "sender": "you", "timestamp": 1637805000000 }
+      ]
+    }
   ]
 }
