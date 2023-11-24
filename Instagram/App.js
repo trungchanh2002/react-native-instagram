@@ -11,7 +11,8 @@ import ReelsScreen from "./components/ReelsScreen";
 import ProfileScreen from "./components/ProfileScreen";
 import MessScreen from "./components/MessScreen";
 import StoryScreen from "./components/StoryScreen";
-import UpdateScreen from "./components/UpdateScreen";
+//Them Update
+import UpdateScreen from "./components/UpdateScreen"; 
 import CommentScreen from "./components/CommentScreen";
 
 //Test 1
