@@ -9,11 +9,12 @@ import SearchScreen from "./components/SearchScreen";
 import ReelsScreen from "./components/ReelsScreen";
 import ProfileScreen from "./components/ProfileScreen";
 import MessScreen from "./components/MessScreen";
-import NotificationScreen from "./components/NotificationScreen";
-import SignUpScreen from "./components/SignUpScreen";
-import LoginScreen from "./components/LoginScreen";
+import StoryScreen from "./components/StoryScreen";
+//Them Update
+import UpdateScreen from "./components/UpdateScreen"; 
+import CommentScreen from "./components/CommentScreen";
 
-//Test
+//Test 1
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
