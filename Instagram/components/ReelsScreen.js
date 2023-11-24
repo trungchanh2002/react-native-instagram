@@ -147,6 +147,12 @@ export default function ReelsScreen({ navigation }) {
           style={styles.icon}
         />
       </View>
+      <View style={styles.location_insta}>
+        <Image
+          source={require("../assets/instagram-logo.png")}
+          style={{ width: 128, height: 30 }}
+        />
+      </View>
 
       <View style={styles.location_all_icon}>
         <View style={styles.location_shape}>
@@ -217,7 +223,7 @@ export default function ReelsScreen({ navigation }) {
           <View style={{ alignItems: "center" }}>
             <TouchableOpacity onPress={closeModal}>
               <Image
-                style={{ width: 150, height: 5, marginTop: 5 }}
+                style={{ width: 140, height: 4, marginTop: 5 }}
                 source={require("../assets/icon-line.png")}
               />
             </TouchableOpacity>
@@ -332,7 +338,13 @@ const styles = StyleSheet.create({
   location_add: {
     position: "absolute",
     top: 30,
-    right: 12,
+    right: 10,
+    alignItems: "center",
+  },
+  location_insta: {
+    position: "absolute",
+    top: 30,
+    left: 10,
     alignItems: "center",
   },
   location_shape: {
