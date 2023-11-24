@@ -14,6 +14,7 @@ import StoryScreen from "./components/StoryScreen";
 import UpdateScreen from "./components/UpdateScreen";
 import CommentScreen from "./components/CommentScreen";
 
+//Test
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
