@@ -63,7 +63,8 @@
       "website": "youtube.com/chanhdev",
       "email": "trungchanh.kda@gmail.com",
       "phone": "0787847379",
-      "gender": "Female"
+      "gender": "Female",
+      "password": "123456"
     },
     {
       "id": 2,
@@ -78,7 +79,8 @@
       "website": "twitch.tv/ronaldo",
       "email": "trungchanh.kda@gmail.com",
       "phone": "0787847379",
-      "gender": "Male"
+      "gender": "Male",
+      "password": "123456"
     },
     {
       "id": 3,
@@ -93,7 +95,8 @@
       "website": "twitch.tv/ronaldo",
       "email": "trungchanh.kda@gmail.com",
       "phone": "0787847379",
-      "gender": "Male"
+      "gender": "Male",
+      "password": "123456"
     },
     {
       "id": 5,

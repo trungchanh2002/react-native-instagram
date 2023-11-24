@@ -12,7 +12,7 @@ export default function SignUpScreen({ navigation }) {
         console.log("Password and Confirm Password don't match");
         return;
       }
-      const response = await fetch('http://localhost:3000/users', {
+      const response = await fetch('http://localhost:3000/user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

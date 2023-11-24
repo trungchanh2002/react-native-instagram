@@ -6,19 +6,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreen from "./components/HomeScreen";
 import SearchScreen from "./components/SearchScreen";
-import AddScreen from "./components/AddScreen";
 import ReelsScreen from "./components/ReelsScreen";
 import ProfileScreen from "./components/ProfileScreen";
 import MessScreen from "./components/MessScreen";
-import StoryScreen from "./components/StoryScreen";
-<<<<<<< HEAD
 import NotificationScreen from "./components/NotificationScreen";
 import SignUpScreen from "./components/SignUpScreen";
 import LoginScreen from "./components/LoginScreen";
-=======
-import UpdateScreen from "./components/UpdateScreen";
-import CommentScreen from "./components/CommentScreen";
->>>>>>> main
 
 //Test
 const Tab = createBottomTabNavigator();
@@ -27,13 +20,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-<<<<<<< HEAD
       <Stack.Navigator
        initialRouteName="LoginScreen"
-=======
-      <Stack.Navigator 
-      // initialRouteName="StoryScreen"
->>>>>>> main
       >
         <Stack.Screen
           name="Tabs"
@@ -42,41 +30,18 @@ export default function App() {
         />
         <Stack.Screen name="NotificationScreen" component={NotificationScreen} />
         <Stack.Screen name="MessScreen" component={MessScreen} />
-<<<<<<< HEAD
-        <Stack.Screen name="TestScreen" component={TestScreen} />
-        <Stack.Screen name="StoryScreen" component={StoryScreen} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
-=======
-        <Stack.Screen name="CommentScreen" component={CommentScreen} />
-        <Stack.Screen
-          name="StoryScreen"
-          component={StoryScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="UpdateScreen"
-          component={UpdateScreen}
-          options={{ headerShown: false }}
-        />
->>>>>>> main
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-<<<<<<< HEAD
 export function TabsComponent() {
   const [isReelsSelected, setIsReelsSelected] = useState(false);
   return (
     <Tab.Navigator
        initialRouteName="LoginScreen"
-=======
-function TabsComponent() {
-  return (
-    <Tab.Navigator
-      // initialRouteName="Profile"
->>>>>>> main
       screenOptions={{ headerShown: false }}
       tabBarOptions={{
         showLabel: false,
@@ -109,7 +74,7 @@ function TabsComponent() {
 
       <Tab.Screen
         name="Add"
-        component={AddScreen}
+        component={SearchScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Image
