@@ -72,11 +72,7 @@ export default function HomeScreen({ navigation }) {
           {/* Post 1 */}
           <Post
             avatarSource={require("../assets/story-1.png")}
-<<<<<<< HEAD
             postName="Rufles"
-=======
-            postName="Chanh"
->>>>>>> main
             isSponsored={true}
             postText="Được tài trợ"
             postImageSource={require("../assets/post-1.png")}

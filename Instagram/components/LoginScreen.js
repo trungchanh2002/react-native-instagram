@@ -7,7 +7,7 @@ export default function LoginScreen({ navigation }) {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/users?username=${username}&password=${password}`);
+      const response = await fetch(`http://localhost:3000/user?username=${username}&password=${password}`);
       const userData = await response.json();
 
       if (userData.length > 0) {
