@@ -20,6 +20,7 @@ export default function ProfileScreen({ navigation }) {
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
+
   const stories = [
     { id: 1, image: require("../assets/story-1.png"), text: "chill" },
     { id: 2, image: require("../assets/story-2.png"), text: "❤️❤️❤️" },
@@ -99,9 +100,9 @@ export default function ProfileScreen({ navigation }) {
             <Text>Category/Genre text</Text>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Text>{userData.bio} </Text>
-              <Text style={{ color: "blue" }}>@{userData.hashtag}</Text>
+              <Text style={{ color: "#4876FF" }}>@{userData.hashtag}</Text>
             </View>
-            <Text style={{ color: "blue" }}>🔗{userData.website}</Text>
+            <Text style={{ color: "#4876FF" }}>🔗{userData.website}</Text>
             <View
               style={{
                 flexDirection: "row",

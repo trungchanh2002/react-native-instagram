@@ -7,6 +7,8 @@ import {
   PanResponder,
   TouchableOpacity,
   TouchableWithoutFeedback,
+  Modal,
+  TextInput,
 } from "react-native";
 import { Video } from "expo-av";
 
@@ -18,11 +20,19 @@ export default function ReelsScreen({ navigation }) {
   const [isPink, setIsPink] = useState(false);
   const [number, setNumber] = useState(140);
   const [isFollowed, setIsFollowed] = useState(false);
+  const [isModalVisible, setModalVisible] = useState(null);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/comments")
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
   useEffect(() => {
     const unsubscribe = navigation.addListener("blur", () => {
       pause();
-      // videoRef.current.pauseAsync();
     });
     return unsubscribe;
   }, [navigation]);
@@ -66,7 +76,11 @@ export default function ReelsScreen({ navigation }) {
     setIsFollowed(!isFollowed);
   };
   const handleCmt = () => {
-    navigation.navigate("CommentScreen");
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
   };
 
   console.log(num);
@@ -197,6 +211,117 @@ export default function ReelsScreen({ navigation }) {
           />
         </TouchableWithoutFeedback>
       </View>
+
+      <Modal animationType="slide" transparent={true} visible={isModalVisible}>
+        <View
+          style={{
+            width: "100%",
+            height: 500,
+            position: "absolute",
+            bottom: 0,
+            backgroundColor: "white",
+            borderRadius: 20,
+          }}
+        >
+          <View style={{ alignItems: "center" }}>
+            <TouchableOpacity onPress={closeModal}>
+              <Image
+                style={{ width: 160, height: 7, marginTop: 5 }}
+                source={require("../assets/icon-line.png")}
+              />
+            </TouchableOpacity>
+            <Text style={{ fontSize: 15, fontWeight: "bold", marginTop: 10 }}>
+              Commnets
+            </Text>
+          </View>
+
+          <View>
+            {data.map((comment) => (
+              <View key={comment.id}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    marginHorizontal: 10,
+                    marginTop: 10,
+                  }}
+                >
+                  <View style={{ flexDirection: "column" }}>
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Image
+                        source={require(`../assets/${comment.avatar}`)}
+                        style={{ width: 32, height: 32, marginRight: 5 }}
+                      />
+                      <View style={{ flexDirection: "column" }}>
+                        <View style={{ flexDirection: "row" }}>
+                          <Text style={{ marginRight: 5, fontWeight: "600" }}>
+                            {comment.username}
+                          </Text>
+                          <Text style={{ color: "#B5B5B5" }}>
+                            {comment.time}
+                          </Text>
+                        </View>
+                        <Text>{comment.comment}</Text>
+                      </View>
+                    </View>
+                    <View
+                      style={{ flexDirection: "row", marginHorizontal: 37 }}
+                    >
+                      <Text style={{ marginRight: 10, color: "#B5B5B5" }}>
+                        Reply
+                      </Text>
+                      <Text style={{ color: "#B5B5B5" }}>See translation</Text>
+                    </View>
+                  </View>
+                  <View style={{ flexDirection: "column" }}>
+                    <Image
+                      style={{ width: 20, height: 20 }}
+                      source={require("../assets/shape-icon.png")}
+                    />
+                    <Text>{comment.like}</Text>
+                  </View>
+                </View>
+              </View>
+            ))}
+          </View>
+
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              bottom: 0,
+              position: "absolute",
+              width: "100%",
+              padding: 5,
+            }}
+          >
+            <Image
+              style={{ width: 40, height: 40 }}
+              source={require("../assets/avatar_emp_1.png")}
+            />
+            <TextInput
+              placeholder="Add Comments"
+              style={{
+                borderWidth: 1,
+                borderRadius: 15,
+                padding: 8,
+                color: "black",
+                width: "80%",
+                borderColor: "#ccc",
+              }}
+            ></TextInput>
+            <Image
+              style={{ width: 25, height: 25, marginLeft: 5 }}
+              source={require("../assets/chat-icon.png")}
+            />
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -284,5 +409,19 @@ const styles = StyleSheet.create({
     bottom: 100,
     right: 12,
     position: "absolute",
+  },
+  icon: {
+    width: 24,
+    height: 24,
+    marginRight: 5,
+  },
+  searchContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 10,
+    padding: 5,
+    marginTop: 10,
   },
 });

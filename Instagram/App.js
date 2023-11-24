@@ -44,7 +44,7 @@ export default function App() {
 function TabsComponent() {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      // initialRouteName="Profile"
       screenOptions={{ headerShown: false }}
       tabBarOptions={{
         showLabel: false,
