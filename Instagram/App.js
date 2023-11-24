@@ -13,7 +13,7 @@ import NotificationScreen from "./components/NotificationScreen";
 import SignUpScreen from "./components/SignUpScreen";
 import LoginScreen from "./components/LoginScreen";
 
-//Test
+//Test 1
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
