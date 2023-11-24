@@ -6,33 +6,42 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreen from "./components/HomeScreen";
 import SearchScreen from "./components/SearchScreen";
+import AddScreen from "./components/AddScreen";
 import ReelsScreen from "./components/ReelsScreen";
 import ProfileScreen from "./components/ProfileScreen";
+//----------------------------
 import MessScreen from "./components/MessScreen";
 import StoryScreen from "./components/StoryScreen";
-//Them Update
-import UpdateScreen from "./components/UpdateScreen"; 
-import CommentScreen from "./components/CommentScreen";
+import UpdateScreen from "./components/UpdateScreen";
+import NotificationScreen from "./components/NotificationScreen";
+import LoginScreen from "./components/LoginScreen";
+import SignUpScreen from "./components/SignUpScreen";
 
-//Test 1
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-       initialRouteName="LoginScreen"
-      >
+      <Stack.Navigator initialRouteName="LoginScreen">
         <Stack.Screen
           name="Tabs"
           component={TabsComponent}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="NotificationScreen" component={NotificationScreen} />
+        <Stack.Screen
+          name="NotificationScreen"
+          component={NotificationScreen}
+        />
         <Stack.Screen name="MessScreen" component={MessScreen} />
-        <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="StoryScreen" component={StoryScreen} />
+        <Stack.Screen
+          name="UpdateScreen"
+          component={UpdateScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -42,14 +51,14 @@ export function TabsComponent() {
   const [isReelsSelected, setIsReelsSelected] = useState(false);
   return (
     <Tab.Navigator
-       initialRouteName="LoginScreen"
+      // initialRouteName="Home"
       screenOptions={{ headerShown: false }}
       tabBarOptions={{
         showLabel: false,
       }}
     >
       <Tab.Screen
-        name="HomeScreen"
+        name="Home"
         component={HomeScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -75,7 +84,7 @@ export function TabsComponent() {
 
       <Tab.Screen
         name="Add"
-        component={SearchScreen}
+        component={AddScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Image
