@@ -11,6 +11,9 @@ import {
 } from "react-native";
 
 export default function HomeScreen({ navigation }) {
+  const goNotiScreen =  () => {
+    navigation.navigate("NotificationScreen");
+  };
   const goMessScreen = () => {
     navigation.navigate("MessScreen");
   };
@@ -36,10 +39,12 @@ export default function HomeScreen({ navigation }) {
             style={styles.logo_insta}
           />
           <View style={styles.iconContainer}>
+            <TouchableOpacity onPress={goNotiScreen}>
             <Image
               source={require("../assets/shape-icon.png")}
               style={styles.icon}
             />
+            </TouchableOpacity>
             <TouchableOpacity onPress={goMessScreen}>
               <Image
                 source={require("../assets/mess-icon.png")}
@@ -67,7 +72,11 @@ export default function HomeScreen({ navigation }) {
           {/* Post 1 */}
           <Post
             avatarSource={require("../assets/story-1.png")}
+<<<<<<< HEAD
+            postName="Rufles"
+=======
             postName="Chanh"
+>>>>>>> main
             isSponsored={true}
             postText="Được tài trợ"
             postImageSource={require("../assets/post-1.png")}
