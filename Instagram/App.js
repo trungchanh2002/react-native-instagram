@@ -10,9 +10,9 @@ import AddScreen from "./components/AddScreen";
 import ReelsScreen from "./components/ReelsScreen";
 import ProfileScreen from "./components/ProfileScreen";
 import MessScreen from "./components/MessScreen";
-import TestScreen from "./components/TestScreen";
 import StoryScreen from "./components/StoryScreen";
 import UpdateScreen from "./components/UpdateScreen";
+import CommentScreen from "./components/CommentScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -20,8 +20,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-      // initialRouteName="TestScreen"
+      <Stack.Navigator 
+      // initialRouteName="StoryScreen"
       >
         <Stack.Screen
           name="Tabs"
@@ -29,8 +29,12 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen name="MessScreen" component={MessScreen} />
-        <Stack.Screen name="TestScreen" component={TestScreen} />
-        <Stack.Screen name="StoryScreen" component={StoryScreen} />
+        <Stack.Screen name="CommentScreen" component={CommentScreen} />
+        <Stack.Screen
+          name="StoryScreen"
+          component={StoryScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="UpdateScreen"
           component={UpdateScreen}
@@ -44,7 +48,7 @@ export default function App() {
 function TabsComponent() {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      // initialRouteName="Profile"
       screenOptions={{ headerShown: false }}
       tabBarOptions={{
         showLabel: false,

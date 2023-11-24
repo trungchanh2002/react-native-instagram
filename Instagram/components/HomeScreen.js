@@ -67,7 +67,7 @@ export default function HomeScreen({ navigation }) {
           {/* Post 1 */}
           <Post
             avatarSource={require("../assets/story-1.png")}
-            postName="Ronaldo"
+            postName="Chanh"
             isSponsored={true}
             postText="Được tài trợ"
             postImageSource={require("../assets/post-1.png")}
@@ -78,7 +78,7 @@ export default function HomeScreen({ navigation }) {
           {/* Post 2 */}
           <Post
             avatarSource={require("../assets/story-2.png")}
-            postName="Messi"
+            postName="Ronaldo"
             isSponsored={true}
             postText="Được tài trợ"
             postImageSource={require("../assets/post-2.png")}
@@ -101,7 +101,7 @@ export default function HomeScreen({ navigation }) {
           {/* Post 4 */}
           <Post
             avatarSource={require("../assets/story-1.png")}
-            postName="Duys"
+            postName="Neymar"
             isSponsored={true}
             postText="Được tài trợ"
             postImageSource={require("../assets/post-4.png")}
@@ -113,7 +113,7 @@ export default function HomeScreen({ navigation }) {
           {/* Post 5 */}
           <Post
             avatarSource={require("../assets/story-1.png")}
-            postName="Chanh"
+            postName="Haaland"
             isSponsored={true}
             postText="Được tài trợ"
             postImageSource={require("../assets/post-5.png")}
