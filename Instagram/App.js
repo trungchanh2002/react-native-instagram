@@ -20,8 +20,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-      // initialRouteName="CommentScreen"
+      <Stack.Navigator 
+      // initialRouteName="StoryScreen"
       >
         <Stack.Screen
           name="Tabs"
@@ -30,7 +30,11 @@ export default function App() {
         />
         <Stack.Screen name="MessScreen" component={MessScreen} />
         <Stack.Screen name="CommentScreen" component={CommentScreen} />
-        <Stack.Screen name="StoryScreen" component={StoryScreen} />
+        <Stack.Screen
+          name="StoryScreen"
+          component={StoryScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="UpdateScreen"
           component={UpdateScreen}

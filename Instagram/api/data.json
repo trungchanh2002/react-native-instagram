@@ -13,7 +13,7 @@
       "avatar": "avatar_emp_2.png",
       "username": "messi",
       "time": "1hour",
-      "comment": "This is a comment hahahahahahaha ❤️❤️❤️",
+      "comment": "This is a comment hihihihihihi ❤️❤️❤️",
       "like": "350"
     },
     {
@@ -21,7 +21,7 @@
       "avatar": "avatar_emp_3.png",
       "username": "mbappe",
       "time": "1hour",
-      "comment": "This is a comment hahahahahahaha ❤️❤️❤️",
+      "comment": "This is a comment hahahheheheheheha ❤️❤️❤️",
       "like": "999"
     },
     {
@@ -29,7 +29,7 @@
       "avatar": "avatar_emp_4.png",
       "username": "neymar",
       "time": "1hour",
-      "comment": "This is a comment hahahahahahaha ❤️❤️❤️",
+      "comment": "This is a comment kkkkkkkkkkk ❤️❤️❤️",
       "like": "137"
     },
     {
@@ -37,7 +37,7 @@
       "avatar": "avatar_emp_1.png",
       "username": "chanh_dev",
       "time": "1hour",
-      "comment": "This is a comment hahahahahahaha ❤️❤️❤️",
+      "comment": "This is a comment siuuuuuuuuuuuuuuuu ❤️❤️❤️",
       "like": "156"
     },
     {
@@ -49,37 +49,10 @@
       "like": "200"
     }
   ],
-  "profile": [
-    {
-      "id": 1,
-      "name": "chanh1",
-      "image": "https://res.cloudinary.com/dwpeef8zz/image/upload/v1698735567/Image1_orxdea.png"
-    },
-    {
-      "id": 2,
-      "name": "chanh2",
-      "image": "https://res-console.cloudinary.com/dwpeef8zz/thumbnails/v1/image/upload/v1698732171/Y2xkLXNhbXBsZS01/grid_landscape"
-    },
-    {
-      "id": 3,
-      "name": "chanh3",
-      "image": "https://res-console.cloudinary.com/dwpeef8zz/thumbnails/v1/image/upload/v1698732171/Y2xkLXNhbXBsZS01/grid_landscape"
-    },
-    {
-      "id": 4,
-      "name": "chanh4",
-      "image": "https://res-console.cloudinary.com/dwpeef8zz/thumbnails/v1/image/upload/v1698732171/Y2xkLXNhbXBsZS01/grid_landscape"
-    },
-    {
-      "id": 5,
-      "name": "chanh5",
-      "image": "https://res-console.cloudinary.com/dwpeef8zz/thumbnails/v1/image/upload/v1698732171/Y2xkLXNhbXBsZS01/grid_landscape"
-    }
-  ],
   "user": [
     {
       "id": 1,
-      "username": "chanh_dev",
+      "username": "chanh.dev",
       "name": "Chanh",
       "avatar": "story-6.png",
       "post": "10",
@@ -137,6 +110,29 @@
     {
       "id": 8,
       "avatar": "story-7.png"
+    }
+  ],
+  "stories": [
+    {
+      "id": 1,
+      "avatar": "avatar_emp_1.png",
+      "username": "messi",
+      "time": "1hour",
+      "image": "post-1.png"
+    },
+    {
+      "id": 2,
+      "avatar": "avatar_emp_2.png",
+      "username": "ronaldo",
+      "time": "2hour",
+      "image": "post-2.png"
+    },
+    {
+      "id": 3,
+      "avatar": "avatar_emp_2.png",
+      "username": "ronaldo",
+      "time": "3hour",
+      "image": "post-3.png"
     }
   ]
 }

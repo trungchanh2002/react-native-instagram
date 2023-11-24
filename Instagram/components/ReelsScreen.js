@@ -14,7 +14,6 @@ import { Video } from "expo-av";
 
 export default function ReelsScreen({ navigation }) {
   const [num, setNum] = useState(0);
-  const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isClicked, setIsClicked] = useState(false);
   const [isPink, setIsPink] = useState(false);
@@ -22,6 +21,7 @@ export default function ReelsScreen({ navigation }) {
   const [isFollowed, setIsFollowed] = useState(false);
   const [isModalVisible, setModalVisible] = useState(null);
   const [data, setData] = useState([]);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     fetch("http://localhost:3000/comments")
@@ -84,6 +84,7 @@ export default function ReelsScreen({ navigation }) {
   };
 
   console.log(num);
+
   const videos = [
     {
       id: 1,
@@ -111,7 +112,7 @@ export default function ReelsScreen({ navigation }) {
       avatarSource: require("../assets/story-2.png"),
       like: "200",
       comment: "200",
-      share: "2.4k",
+      share: "1.9k",
       captinon: "Xin chao moi nguoi!",
       name: "messi.lionel",
     },
@@ -121,17 +122,7 @@ export default function ReelsScreen({ navigation }) {
       avatarSource: require("../assets/story-2.png"),
       like: "200",
       comment: "200",
-      share: "2.4k",
-      captinon: "Xin chao moi nguoi!",
-      name: "messi.lionel",
-    },
-    {
-      id: 5,
-      video: require("../videos/video-5.mp4"),
-      avatarSource: require("../assets/story-2.png"),
-      like: "200",
-      comment: "200",
-      share: "2.4k",
+      share: "2.2k",
       captinon: "Xin chao moi nguoi!",
       name: "messi.lionel",
     },
@@ -147,7 +138,7 @@ export default function ReelsScreen({ navigation }) {
           shouldPlay={true}
           resizeMode="contain"
           isLooping
-          useNativeControls
+          // useNativeControls
         />
       </View>
       <View style={styles.location_add}>
@@ -226,7 +217,7 @@ export default function ReelsScreen({ navigation }) {
           <View style={{ alignItems: "center" }}>
             <TouchableOpacity onPress={closeModal}>
               <Image
-                style={{ width: 160, height: 7, marginTop: 5 }}
+                style={{ width: 150, height: 5, marginTop: 5 }}
                 source={require("../assets/icon-line.png")}
               />
             </TouchableOpacity>
@@ -262,7 +253,7 @@ export default function ReelsScreen({ navigation }) {
                           <Text style={{ marginRight: 5, fontWeight: "600" }}>
                             {comment.username}
                           </Text>
-                          <Text style={{ color: "#B5B5B5" }}>
+                          <Text style={{ color: "#A4A4A4" }}>
                             {comment.time}
                           </Text>
                         </View>
@@ -272,10 +263,10 @@ export default function ReelsScreen({ navigation }) {
                     <View
                       style={{ flexDirection: "row", marginHorizontal: 37 }}
                     >
-                      <Text style={{ marginRight: 10, color: "#B5B5B5" }}>
+                      <Text style={{ marginRight: 10, color: "#A4A4A4" }}>
                         Reply
                       </Text>
-                      <Text style={{ color: "#B5B5B5" }}>See translation</Text>
+                      <Text style={{ color: "#A4A4A4" }}>See translation</Text>
                     </View>
                   </View>
                   <View style={{ flexDirection: "column" }}>
@@ -301,7 +292,7 @@ export default function ReelsScreen({ navigation }) {
             }}
           >
             <Image
-              style={{ width: 40, height: 40 }}
+              style={{ width: 40, height: 40, marginRight: 5 }}
               source={require("../assets/avatar_emp_1.png")}
             />
             <TextInput
