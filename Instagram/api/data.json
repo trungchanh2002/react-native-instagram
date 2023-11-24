@@ -54,7 +54,7 @@
       "id": 1,
       "username": "chanh.dev",
       "name": "Chanh",
-      "avatar": "story-6.png",
+      "avatar": "story-2.png",
       "post": "10",
       "followers": "9,005",
       "following": "88",
@@ -68,7 +68,7 @@
     },
     {
       "id": 2,
-      "username": "chanh_dev",
+      "username": "an",
       "name": "chanh1",
       "avatar": "story-2.png",
       "post": "50",
@@ -84,7 +84,7 @@
     },
     {
       "id": 3,
-      "username": "chanh_dev",
+      "username": "chanh",
       "name": "chanh1",
       "avatar": "story-3.png",
       "post": "50",
@@ -97,22 +97,6 @@
       "phone": "0787847379",
       "gender": "Male",
       "password": "123456"
-    },
-    {
-      "id": 5,
-      "avatar": "story-4.png"
-    },
-    {
-      "id": 6,
-      "avatar": "story-5.png"
-    },
-    {
-      "id": 7,
-      "avatar": "story-6.png"
-    },
-    {
-      "id": 8,
-      "avatar": "story-7.png"
     }
   ],
   "stories": [
