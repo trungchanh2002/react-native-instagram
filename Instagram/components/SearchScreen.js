@@ -39,7 +39,7 @@ export default function SearchScreen() {
           />
         </View>
 
-        <View style={{ flexDirection: "row", marginBottom: 5 }}>
+        <View style={{ flexDirection: "row", marginBottom: 7 }}>
           <Text style={styles.text_br}>Shop</Text>
           <Text style={styles.text_br}>Style</Text>
           <Text style={styles.text_br}>Sport</Text>
