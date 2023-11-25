@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -11,7 +12,7 @@ import {
 } from "react-native";
 
 export default function HomeScreen({ navigation }) {
-  const goNotiScreen =  () => {
+  const goNotiScreen = () => {
     navigation.navigate("NotificationScreen");
   };
   const goMessScreen = () => {
@@ -40,10 +41,10 @@ export default function HomeScreen({ navigation }) {
           />
           <View style={styles.iconContainer}>
             <TouchableOpacity onPress={goNotiScreen}>
-            <Image
-              source={require("../assets/shape-icon.png")}
-              style={styles.icon}
-            />
+              <Image
+                source={require("../assets/shape-icon.png")}
+                style={styles.icon}
+              />
             </TouchableOpacity>
             <TouchableOpacity onPress={goMessScreen}>
               <Image
@@ -144,6 +145,11 @@ const Post = ({
   const [number, setNumber] = useState(700);
   const [isPink, setIsPink] = useState(false);
   const [showComment, setShowComment] = useState(false);
+  const navigation = useNavigation();
+  
+  const handleProfileFl = () => {
+    navigation.navigate("ProfileFollowing");
+  };
 
   const handleShape = () => {
     setIsPink(!isPink);
@@ -154,7 +160,9 @@ const Post = ({
     <View style={styles.home_post}>
       <View style={styles.post_header}>
         <View style={styles.avatar}>
-          <Image source={avatarSource} style={styles.image_avatar} />
+          <TouchableOpacity onPress={handleProfileFl}>
+            <Image source={avatarSource} style={styles.image_avatar} />
+          </TouchableOpacity>
           <View style={styles.text1}>
             <View style={styles.ruffles}>
               <Text style={styles.text2}>{postName}</Text>
