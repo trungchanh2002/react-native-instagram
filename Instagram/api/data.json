@@ -52,7 +52,7 @@
   "user": [
     {
       "id": 1,
-      "username": "chanh.dev",
+      "username": "chanh_dev",
       "name": "Chanh",
       "avatar": "story-2.png",
       "post": "10",
@@ -64,11 +64,11 @@
       "email": "trungchanh.kda@gmail.com",
       "phone": "0787847379",
       "gender": "Female",
-      "password": "123456"
+      "password": "123"
     },
     {
       "id": 2,
-      "username": "an",
+      "username": "an_dev",
       "name": "chanh1",
       "avatar": "story-2.png",
       "post": "50",
