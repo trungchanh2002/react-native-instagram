@@ -1,22 +1,18 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  ScrollView,
-  Image,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-  FlatList,
-} from "react-native";
+import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity, TextInput, FlatList, Modal } from "react-native";
 
 export default function HomeScreen({ navigation }) {
   const goNotiScreen = () => {
     navigation.navigate("NotificationScreen");
   };
+
   const goMessScreen = () => {
     navigation.navigate("MessScreen");
+  };
+
+  const goStoryScreen = () => {
+    navigation.navigate("StoryScreen");
   };
 
   const stories = [
@@ -33,24 +29,19 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <ScrollView>
+      {/* ModalComment */}
+      <Modal animationType="slide" transparent={true} visible={false}>
+        <View style={{ alignItems: "center", bottom: 0, position: "absolute", width: "100%", height: 300, padding: 5, backgroundColor: "pink" }}></View>
+      </Modal>
       <View style={styles.container}>
         <View style={styles.home_header}>
-          <Image
-            source={require("../assets/Logo dropdown.png")}
-            style={styles.logo_insta}
-          />
+          <Image source={require("../assets/Logo dropdown.png")} style={styles.logo_insta} />
           <View style={styles.iconContainer}>
             <TouchableOpacity onPress={goNotiScreen}>
-              <Image
-                source={require("../assets/shape-icon.png")}
-                style={styles.icon}
-              />
+              <Image source={require("../assets/shape-icon.png")} style={styles.icon} />
             </TouchableOpacity>
             <TouchableOpacity onPress={goMessScreen}>
-              <Image
-                source={require("../assets/mess-icon.png")}
-                style={styles.icon}
-              />
+              <Image source={require("../assets/mess-icon.png")} style={styles.icon} />
             </TouchableOpacity>
           </View>
         </View>
@@ -62,7 +53,9 @@ export default function HomeScreen({ navigation }) {
             horizontal={true}
             renderItem={({ item }) => (
               <View style={styles.home_story}>
-                <Image source={item.image} style={styles.story_image} />
+                <TouchableOpacity onPress={goStoryScreen}>
+                  <Image source={item.image} style={styles.story_image} />
+                </TouchableOpacity>
                 <Text style={styles.textStyle}>{item.text}</Text>
               </View>
             )}
@@ -133,20 +126,12 @@ export default function HomeScreen({ navigation }) {
   );
 }
 
-const Post = ({
-  avatarSource,
-  postImageSource,
-  isSponsored,
-  postName,
-  postText,
-  postCaption,
-  postTime,
-}) => {
+const Post = ({ avatarSource, postImageSource, isSponsored, postName, postText, postCaption, postTime }) => {
   const [number, setNumber] = useState(700);
   const [isPink, setIsPink] = useState(false);
   const [showComment, setShowComment] = useState(false);
   const navigation = useNavigation();
-  
+
   const handleProfileFl = () => {
     navigation.navigate("ProfileFollowing");
   };
@@ -166,12 +151,7 @@ const Post = ({
           <View style={styles.text1}>
             <View style={styles.ruffles}>
               <Text style={styles.text2}>{postName}</Text>
-              {isSponsored && (
-                <Image
-                  source={require("../assets/verified.png")}
-                  style={styles.image_verified}
-                />
-              )}
+              {isSponsored && <Image source={require("../assets/verified.png")} style={styles.image_verified} />}
             </View>
             {isSponsored && <Text>{postText}</Text>}
           </View>
@@ -184,29 +164,13 @@ const Post = ({
         <View style={styles.icon_postinfo}>
           <View style={styles.iconGroupLeft}>
             <TouchableOpacity onPress={handleShape}>
-              <Image
-                source={
-                  isPink
-                    ? require("../assets/shape-pink-icon.png")
-                    : require("../assets/shape-icon.png")
-                }
-                style={styles.icon_post}
-              />
+              <Image source={isPink ? require("../assets/shape-pink-icon.png") : require("../assets/shape-icon.png")} style={styles.icon_post} />
             </TouchableOpacity>
-            <Image
-              source={require("../assets/cmt-icon.png")}
-              style={styles.icon_post}
-            />
-            <Image
-              source={require("../assets/chat-icon.png")}
-              style={styles.icon_post}
-            />
+            <Image source={require("../assets/cmt-icon.png")} style={styles.icon_post} />
+            <Image source={require("../assets/chat-icon.png")} style={styles.icon_post} />
           </View>
           <View style={styles.iconGroupRight}>
-            <Image
-              source={require("../assets/share-icon.png")}
-              style={styles.icon_post}
-            />
+            <Image source={require("../assets/share-icon.png")} style={styles.icon_post} />
           </View>
         </View>
         <Text style={styles.text_likes}>{number} Likes</Text>
@@ -216,10 +180,7 @@ const Post = ({
             <Text>{postCaption}</Text>
           </Text>
         </View>
-        <Text
-          style={styles.text_time}
-          onPress={() => setShowComment(!showComment)}
-        >
+        <Text style={styles.text_time} onPress={() => setShowComment(!showComment)}>
           View all comments
         </Text>
         {showComment && (
@@ -233,15 +194,8 @@ const Post = ({
         )}
 
         <View style={styles.commentContainer}>
-          <Image
-            source={require("../assets/story-0.png")}
-            style={styles.image_avatar_2}
-          />
-          <TextInput
-            style={styles.commentInput}
-            placeholder="Thêm bình luận ..."
-            placeholderTextColor="#888"
-          />
+          <Image source={require("../assets/story-0.png")} style={styles.image_avatar_2} />
+          <TextInput style={styles.commentInput} placeholder="Thêm bình luận ..." placeholderTextColor="#888" />
         </View>
         <Text style={styles.text_time}>{postTime}</Text>
       </View>

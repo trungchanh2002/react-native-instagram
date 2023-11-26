@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  StatusBar,
-  Image,
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { StatusBar, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from "react-native";
 
 export default function LoginScreen({ navigation }) {
   const [username, setUsername] = useState("");
@@ -15,9 +7,7 @@ export default function LoginScreen({ navigation }) {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:3000/user?username=${username}&password=${password}`
-      );
+      const response = await fetch(`http://localhost:3000/user?username=${username}&password=${password}`);
       const userData = await response.json();
 
       if (userData.length > 0) {
@@ -41,25 +31,9 @@ export default function LoginScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../assets/Instagram Logo-black.png")}
-        style={styles.logo}
-      />
-
-      <TextInput
-        style={styles.input}
-        placeholder="Username"
-        value={username}
-        onChangeText={(text) => setUsername(text)}
-      />
-
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry
-        value={password}
-        onChangeText={(text) => setPassword(text)}
-      />
+      <Image source={require("../assets/Instagram Logo-black.png")} style={styles.logo} />
+      <TextInput style={styles.input} placeholder="Username" value={username} onChangeText={(text) => setUsername(text)} />
+      <TextInput style={styles.input} placeholder="Password" secureTextEntry value={password} onChangeText={(text) => setPassword(text)} />
 
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>

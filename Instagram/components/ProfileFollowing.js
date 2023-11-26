@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function ProfileFollowing({ navigation }) {
@@ -56,20 +49,10 @@ export default function ProfileFollowing({ navigation }) {
               style={{
                 flexDirection: "row",
                 alignItems: "center",
-              }}
-            >
-              <Ionicons
-                name="chevron-back"
-                size={28}
-                color="black"
-                style={{ marginRight: 130 }}
-                onPress={() => navigation.goBack()}
-              />
+              }}>
+              <Ionicons name="chevron-back" size={28} color="black" style={{ marginRight: 130 }} onPress={() => navigation.goBack()} />
               <Text style={styles.text_username}>{userData.username}</Text>
-              <Image
-                source={require("../assets/verified.png")}
-                style={{ width: 15, height: 15, marginLeft: 5 }}
-              />
+              <Image source={require("../assets/verified.png")} style={{ width: 15, height: 15, marginLeft: 5 }} />
             </View>
             <View style={styles.icon_header}>
               <Image
@@ -80,22 +63,16 @@ export default function ProfileFollowing({ navigation }) {
                 }}
                 source={require("../assets/icon-nofication.png")}
               />
-              <Image
-                style={{ width: 24, height: 24, marginRight: 10 }}
-                source={require("../assets/menu-icon.png")}
-              />
+              <Image style={{ width: 24, height: 24, marginRight: 10 }} source={require("../assets/menu-icon.png")} />
             </View>
           </View>
           <View style={styles.header_info}>
-            <Image
-              source={require(`../assets/${userData.avatar}`)}
-              style={{ width: 90, height: 90 }}
-            />
+            <Image source={require(`../assets/${userData.avatar}`)} style={{ width: 90, height: 90 }} />
             <View style={{ flexDirection: "row" }}>
               <View style={{ alignItems: "center", marginRight: 20 }}>
                 <Text style={styles.text_header}>{userData.post}</Text>
                 <Text style={styles.text_header1}>Posts</Text>
-              </View>15
+              </View>
               <View style={{ alignItems: "center", marginRight: 10 }}>
                 <Text style={styles.text_header}>{userData.followers}</Text>
                 <Text style={styles.text_header1}>Followers</Text>
@@ -107,9 +84,7 @@ export default function ProfileFollowing({ navigation }) {
             </View>
           </View>
           <View style={styles.header_info2}>
-            <Text style={{ fontSize: 15, fontWeight: "bold", marginTop: 5 }}>
-              {userData.name}
-            </Text>
+            <Text style={{ fontSize: 15, fontWeight: "bold", marginTop: 5 }}>{userData.name}</Text>
             <Text>Category/Genre text</Text>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Text>{userData.bio} </Text>
@@ -121,12 +96,8 @@ export default function ProfileFollowing({ navigation }) {
                 flexDirection: "row",
                 alignItems: "center",
                 marginTop: 10,
-              }}
-            >
-              <Image
-                style={{ width: 54, height: 26 }}
-                source={require("../assets/avatar_info.png")}
-              />
+              }}>
+              <Image style={{ width: 54, height: 26 }} source={require("../assets/avatar_info.png")} />
               <Text> Followed by </Text>
               <Text style={styles.text_header2}>ronaldo, </Text>
               <Text style={styles.text_header2}>messi</Text>
@@ -141,20 +112,11 @@ export default function ProfileFollowing({ navigation }) {
               flexDirection: "row",
               alignItems: "center",
               paddingLeft: 5,
-            }}
-          >
-            <TouchableOpacity
-              style={styles.btn_follow}
-              onPress={handleIsFollow}
-            >
-              <Text style={{ fontWeight: "bold", color: "white" }}>
-                {isFollow ? "UnFollow" : "Follow"}
-              </Text>
+            }}>
+            <TouchableOpacity style={styles.btn_follow} onPress={handleIsFollow}>
+              <Text style={{ fontWeight: "bold", color: "white" }}>{isFollow ? "UnFollow" : "Follow"}</Text>
             </TouchableOpacity>
-            <Image
-              style={{ width: 30, height: 30, marginLeft: 4 }}
-              source={require("../assets/add-follow.png")}
-            />
+            <Image style={{ width: 30, height: 30, marginLeft: 4 }} source={require("../assets/add-follow.png")} />
           </View>
           <View
             style={{
@@ -163,42 +125,26 @@ export default function ProfileFollowing({ navigation }) {
               justifyContent: "space-between",
               marginHorizontal: 10,
               marginTop: 8,
-            }}
-          >
+            }}>
             <Text style={styles.text_br}>Message</Text>
             <Text style={styles.text_br}>Subscribe</Text>
             <Text style={styles.text_br}>Contact</Text>
             <Text style={styles.text_br}>Reels</Text>
           </View>
 
-          <ScrollView
-            horizontal
-            style={{ paddingLeft: 5, marginRight: 10, marginTop: 10 }}
-          >
+          <ScrollView horizontal style={{ paddingLeft: 5, marginRight: 10, marginTop: 10 }}>
             {stories.map((item, index) => (
               <View style={{ alignItems: "center" }} key={index}>
-                <Image
-                  style={{ width: 65, height: 65, marginRight: 5 }}
-                  source={item.image}
-                />
+                <Image style={{ width: 65, height: 65, marginRight: 5 }} source={item.image} />
                 <Text>{item.text}</Text>
               </View>
             ))}
           </ScrollView>
 
           <View style={styles.icon_container}>
-            <Image
-              source={require("../assets/list-icon.png")}
-              style={styles.icon_con}
-            />
-            <Image
-              source={require("../assets/reels-icon-mo.png")}
-              style={styles.icon_con}
-            />
-            <Image
-              source={require("../assets/account-icon-mo.png")}
-              style={styles.icon_con}
-            />
+            <Image source={require("../assets/list-icon.png")} style={styles.icon_con} />
+            <Image source={require("../assets/reels-icon-mo.png")} style={styles.icon_con} />
+            <Image source={require("../assets/account-icon-mo.png")} style={styles.icon_con} />
           </View>
 
           <View style={{ marginVertical: 10, alignItems: "center" }}>
