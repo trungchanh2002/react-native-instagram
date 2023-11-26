@@ -1,5 +1,7 @@
 {
- "printWidth": 300,
- "singleQuote": true,
- "tabWidth": 3
+  "printWidth": 300,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "jsxBracketSameLine": true,
+  "bracketSpacing": true
 }

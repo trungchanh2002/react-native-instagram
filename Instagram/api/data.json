@@ -1,4 +1,11 @@
 {
+  "demo": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
   "comments": [
     {
       "id": 1,
@@ -37,7 +44,7 @@
       "avatar": "avatar_emp_1.png",
       "username": "chanh_dev",
       "time": "1hour",
-      "comment": "This is a comment siuuuuuuuuuuuuuuuu ❤️❤️❤️",
+      "comment": "This is a comment 😓😓",
       "like": "156"
     },
     {
@@ -45,7 +52,7 @@
       "avatar": "avatar_emp_1.png",
       "username": "chanh_dev",
       "time": "1hour",
-      "comment": "This is a comment hahahahahahaha ❤️❤️❤️",
+      "comment": "This is a comment 😓😓",
       "like": "200"
     }
   ],
@@ -97,29 +104,75 @@
       "phone": "0787847379",
       "gender": "Male",
       "password": "123456"
+    },
+    {
+      "id": 4,
+      "username": "chanh",
+      "name": "chanh1",
+      "avatar": "story-3.png",
+      "post": "50",
+      "followers": "5,102",
+      "following": "102",
+      "bio": "Xin chao",
+      "hashtag": "hashtag",
+      "website": "twitch.tv/ronaldo",
+      "email": "trungchanh.kda@gmail.com",
+      "phone": "0787847379",
+      "gender": "Male",
+      "password": "123456"
+    },
+    {
+      "id": 5,
+      "username": "chanh",
+      "name": "chanh1",
+      "avatar": "story-3.png",
+      "post": "50",
+      "followers": "5,102",
+      "following": "102",
+      "bio": "Xin chao",
+      "hashtag": "hashtag",
+      "website": "twitch.tv/ronaldo",
+      "email": "trungchanh.kda@gmail.com",
+      "phone": "0787847379",
+      "gender": "Male",
+      "password": "123456"
     }
   ],
   "stories": [
     {
       "id": 1,
       "avatar": "avatar_emp_1.png",
-      "username": "messi",
+      "username": "messi_dev",
       "time": "1hour",
       "image": "post-1.png"
     },
     {
       "id": 2,
       "avatar": "avatar_emp_2.png",
-      "username": "ronaldo",
+      "username": "ronaldo_dev",
       "time": "2hour",
       "image": "post-2.png"
     },
     {
       "id": 3,
-      "avatar": "avatar_emp_2.png",
-      "username": "ronaldo",
+      "avatar": "avatar_emp_3.png",
+      "username": "mbappe_dev",
       "time": "3hour",
       "image": "post-3.png"
+    },
+    {
+      "id": 4,
+      "avatar": "avatar_emp_4.png",
+      "username": "neymar_dev",
+      "time": "4min",
+      "image": "post-4.png"
+    },
+    {
+      "id": 5,
+      "avatar": "avatar_emp_5.png",
+      "username": "bale_dev",
+      "time": "5hour",
+      "image": "post-5.png"
     }
   ]
 }

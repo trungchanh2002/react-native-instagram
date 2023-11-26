@@ -6,7 +6,8 @@ export default function StoryScreen({ navigation }) {
    const [isPink, setIsPink] = useState(false);
    const [stories, setStories] = useState([]);
    const [id, setId] = useState(0);
-   const [countdown, setCountdown] = useState(null);
+   const [countdown, setCountdown] = useState(4000);
+
    const totalDuration = 4000;
 
    useEffect(() => {
@@ -45,6 +46,7 @@ export default function StoryScreen({ navigation }) {
    const handleShape = () => {
       setIsPink(!isPink);
    };
+   console.log(id);
 
    return (
       <View style={styles.container}>
