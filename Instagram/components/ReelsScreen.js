@@ -73,6 +73,9 @@ export default function ReelsScreen({ navigation }) {
     setModalVisible(false);
   };
 
+  const goProfileFollowing = () => {
+    navigation.navigate("ProfileFollowing");
+  };
   console.log(num);
 
   const videos = [
@@ -80,7 +83,7 @@ export default function ReelsScreen({ navigation }) {
       id: 1,
       video: require("../videos/video-1.mp4"),
       avatarSource: require("../assets/story-1.png"),
-      like: "100",
+      like: "101",
       comment: "100",
       share: "200",
       captinon: "Hello Ervery One",
@@ -90,8 +93,8 @@ export default function ReelsScreen({ navigation }) {
       id: 2,
       video: require("../videos/video-2.mp4"),
       avatarSource: require("../assets/story-2.png"),
-      like: "200",
-      comment: "200",
+      like: "204",
+      comment: "281",
       share: "2.4k",
       captinon: "Xin chao moi nguoi!",
       name: "messi.lionel",
@@ -99,9 +102,9 @@ export default function ReelsScreen({ navigation }) {
     {
       id: 3,
       video: require("../videos/video-3.mp4"),
-      avatarSource: require("../assets/story-2.png"),
-      like: "200",
-      comment: "200",
+      avatarSource: require("../assets/story-3.png"),
+      like: "300",
+      comment: "171",
       share: "1.9k",
       captinon: "Xin chao moi nguoi!",
       name: "messi.lionel",
@@ -109,9 +112,19 @@ export default function ReelsScreen({ navigation }) {
     {
       id: 4,
       video: require("../videos/video-4.mp4"),
-      avatarSource: require("../assets/story-2.png"),
-      like: "200",
-      comment: "200",
+      avatarSource: require("../assets/story-4.png"),
+      like: "480",
+      comment: "565",
+      share: "2.2k",
+      captinon: "Xin chao moi nguoi!",
+      name: "messi.lionel",
+    },
+    {
+      id: 5,
+      video: require("../videos/video-5.mp4"),
+      avatarSource: require("../assets/story-5.png"),
+      like: "678",
+      comment: "555",
       share: "2.2k",
       captinon: "Xin chao moi nguoi!",
       name: "messi.lionel",
@@ -128,7 +141,7 @@ export default function ReelsScreen({ navigation }) {
           shouldPlay={true}
           resizeMode="contain"
           isLooping
-          // useNativeControls
+          useNativeControls
         />
       </View>
       <View style={styles.location_add}>
@@ -146,7 +159,7 @@ export default function ReelsScreen({ navigation }) {
           <Text style={styles.text_icon}>{number}</Text>
         </View>
         <View style={styles.location_shape}>
-          <TouchableOpacity onPress={handleCmt}>
+          <TouchableOpacity style={{ alignItems: "center" }} onPress={handleCmt}>
             <Image source={require("../assets/cmt-white-icon.png")} style={styles.icon} />
             <Text style={styles.text_icon}>{videos[num].comment}</Text>
           </TouchableOpacity>
@@ -158,7 +171,9 @@ export default function ReelsScreen({ navigation }) {
       </View>
 
       <View style={styles.avatar}>
-        <Image source={videos[num].avatarSource} style={styles.image_avatar} />
+        <TouchableOpacity onPress={goProfileFollowing}>
+          <Image source={videos[num].avatarSource} style={styles.image_avatar} />
+        </TouchableOpacity>
         <Text style={styles.text_name}>{videos[num].name}</Text>
         <TouchableOpacity style={styles.btn_follow} onPress={handleFollow}>
           <Text style={styles.text_follow}>{isFollowed ? "Unfollow" : "Follow"}</Text>
@@ -176,24 +191,19 @@ export default function ReelsScreen({ navigation }) {
       </View>
       {/* Modal Comments */}
       <Modal animationType="slide" transparent={true} visible={isModalVisible}>
-        <View style={{ width: "100%", height: 500, position: "absolute", bottom: 0, backgroundColor: "white", borderRadius: 20 }}>
+        <View style={{ width: "100%", height: 420, position: "absolute", bottom: 0, backgroundColor: "white", borderRadius: 20 }}>
           <View style={{ alignItems: "center", paddingTop: 5 }}>
             <TouchableOpacity onPress={closeModal}>
               <Text style={{ borderRadius: 5, backgroundColor: "gray", width: 100, height: 6 }}></Text>
             </TouchableOpacity>
             <Text style={{ fontSize: 15, fontWeight: "bold", marginTop: 10 }}>Commnets</Text>
           </View>
-
           <View>
             {data.map((comment) => (
               <View key={comment.id}>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: 10, marginTop: 10 }}>
                   <View style={{ flexDirection: "column" }}>
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                      }}>
+                    <View style={{ flexDirection: "row", alignItems: "center" }}>
                       <Image source={require(`../assets/${comment.avatar}`)} style={{ width: 32, height: 32, marginRight: 5 }} />
                       <View style={{ flexDirection: "column" }}>
                         <View style={{ flexDirection: "row" }}>
@@ -216,7 +226,6 @@ export default function ReelsScreen({ navigation }) {
               </View>
             ))}
           </View>
-
           <View style={{ flexDirection: "row", alignItems: "center", bottom: 0, position: "absolute", width: "100%", padding: 5 }}>
             <Image style={{ width: 40, height: 40, marginRight: 5 }} source={require("../assets/avatar_emp_1.png")} />
             <TextInput style={{ borderWidth: 2, borderRadius: 15, color: "black", borderColor: "gray", height: 38, width: 300, opacity: 0.8, paddingLeft: 10 }} placeholder="Send Message" />
@@ -256,7 +265,6 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     alignItems: "center",
   },
-
   text_icon: {
     color: "white",
     fontSize: 16,

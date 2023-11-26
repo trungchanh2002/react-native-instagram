@@ -1,15 +1,8 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ScrollView,
-  TextInput,
-} from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView, TextInput, TouchableOpacity } from "react-native";
 import { Video } from "expo-av";
 
-export default function SearchScreen() {
+export default function SearchScreen({ navigation }) {
   const images = [
     { id: 1, image: require("../assets/post-1.png") },
     { id: 2, image: require("../assets/post-2.png") },
@@ -22,21 +15,19 @@ export default function SearchScreen() {
     { id: 9, image: require("../assets/post-9.png") },
   ];
 
+  const goStoryScreen = () => {
+    navigation.navigate("StoryScreen");
+  };
+
   return (
     <ScrollView>
       <View style={styles.container}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <View style={styles.searchContainer}>
-            <Image
-              source={require("../assets/search-icon.png")}
-              style={styles.icon}
-            />
+            <Image source={require("../assets/search-icon.png")} style={styles.icon} />
             <TextInput style={styles.input} placeholder="Tìm kiếm" />
           </View>
-          <Image
-            source={require("../assets/icon-live.png")}
-            style={{ width: 24, height: 24, margin: 5 }}
-          />
+          <Image source={require("../assets/icon-live.png")} style={{ width: 24, height: 24, margin: 5 }} />
         </View>
 
         <View style={{ flexDirection: "row", marginBottom: 7 }}>
@@ -48,68 +39,94 @@ export default function SearchScreen() {
           <Text style={styles.text_br}>Auto Text</Text>
         </View>
 
-        <View>
-          <View style={styles.image_row_full}>
-            <View style={styles.image_cloumn}>
-              <View style={styles.image_rows}>
-                <Image source={images[0].image} style={styles.images} />
-                <Image source={images[1].image} style={styles.images} />
+        <TouchableOpacity onPress={goStoryScreen}>
+          <View>
+            {/* 1 */}
+            <View style={styles.image_row_full}>
+              <View style={styles.image_cloumn}>
+                <View style={styles.image_rows}>
+                  <Image source={images[0].image} style={styles.images} />
+                  <Image source={images[1].image} style={styles.images} />
+                </View>
+                <View style={styles.image_rows}>
+                  <Image source={images[2].image} style={styles.images} />
+                  <Image source={images[3].image} style={styles.images} />
+                </View>
               </View>
-              <View style={styles.image_rows}>
-                <Image source={images[2].image} style={styles.images} />
-                <Image source={images[3].image} style={styles.images} />
+              <Video source={require("../videos/video-1.mp4")} isMuted={true} resizeMode="contain" shouldPlay isLooping style={styles.video} />
+            </View>
+            {/* 2 */}
+            <View style={styles.image_row_full}>
+              <Video source={require("../videos/video-2.mp4")} isMuted={true} resizeMode="cover" shouldPlay isLooping style={styles.video} />
+              <View style={styles.image_cloumn}>
+                <View style={styles.image_rows}>
+                  <Image source={images[4].image} style={styles.images} />
+                  <Image source={images[5].image} style={styles.images} />
+                </View>
+                <View style={styles.image_rows}>
+                  <Image source={images[6].image} style={styles.images} />
+                  <Image source={images[7].image} style={styles.images} />
+                </View>
               </View>
             </View>
-            <Video
-              source={require("../videos/video-1.mp4")}
-              isMuted={true}
-              resizeMode="contain"
-              shouldPlay
-              isLooping
-              style={styles.video}
-            />
-          </View>
-          <View style={styles.image_row_full}>
-            <Video
-              source={require("../videos/video-2.mp4")}
-              isMuted={true}
-              resizeMode="cover"
-              shouldPlay
-              isLooping
-              style={styles.video}
-            />
-            <View style={styles.image_cloumn}>
-              <View style={styles.image_rows}>
-                <Image source={images[4].image} style={styles.images} />
-                <Image source={images[5].image} style={styles.images} />
+            {/* 3 */}
+            <View style={styles.image_row_full}>
+              <View style={styles.image_cloumn}>
+                <View style={styles.image_rows}>
+                  <Image source={images[8].image} style={styles.images} />
+                  <Image source={images[1].image} style={styles.images} />
+                </View>
+                <View style={styles.image_rows}>
+                  <Image source={images[2].image} style={styles.images} />
+                  <Image source={images[3].image} style={styles.images} />
+                </View>
               </View>
-              <View style={styles.image_rows}>
-                <Image source={images[6].image} style={styles.images} />
-                <Image source={images[7].image} style={styles.images} />
+              <Video source={require("../videos/video-3.mp4")} isMuted={true} resizeMode="cover" shouldPlay isLooping style={styles.video} />
+            </View>
+            {/* 1 */}
+            <View style={styles.image_row_full}>
+              <View style={styles.image_cloumn}>
+                <View style={styles.image_rows}>
+                  <Image source={images[0].image} style={styles.images} />
+                  <Image source={images[1].image} style={styles.images} />
+                </View>
+                <View style={styles.image_rows}>
+                  <Image source={images[2].image} style={styles.images} />
+                  <Image source={images[3].image} style={styles.images} />
+                </View>
+              </View>
+              <Video source={require("../videos/video-1.mp4")} isMuted={true} resizeMode="contain" shouldPlay isLooping style={styles.video} />
+            </View>
+            {/* 2 */}
+            <View style={styles.image_row_full}>
+              <Video source={require("../videos/video-2.mp4")} isMuted={true} resizeMode="cover" shouldPlay isLooping style={styles.video} />
+              <View style={styles.image_cloumn}>
+                <View style={styles.image_rows}>
+                  <Image source={images[4].image} style={styles.images} />
+                  <Image source={images[5].image} style={styles.images} />
+                </View>
+                <View style={styles.image_rows}>
+                  <Image source={images[6].image} style={styles.images} />
+                  <Image source={images[7].image} style={styles.images} />
+                </View>
               </View>
             </View>
-          </View>
-          <View style={styles.image_row_full}>
-            <View style={styles.image_cloumn}>
-              <View style={styles.image_rows}>
-                <Image source={images[8].image} style={styles.images} />
-                <Image source={images[1].image} style={styles.images} />
+            {/* 3 */}
+            <View style={styles.image_row_full}>
+              <View style={styles.image_cloumn}>
+                <View style={styles.image_rows}>
+                  <Image source={images[8].image} style={styles.images} />
+                  <Image source={images[1].image} style={styles.images} />
+                </View>
+                <View style={styles.image_rows}>
+                  <Image source={images[2].image} style={styles.images} />
+                  <Image source={images[3].image} style={styles.images} />
+                </View>
               </View>
-              <View style={styles.image_rows}>
-                <Image source={images[2].image} style={styles.images} />
-                <Image source={images[3].image} style={styles.images} />
-              </View>
+              <Video source={require("../videos/video-3.mp4")} isMuted={true} resizeMode="cover" shouldPlay isLooping style={styles.video} />
             </View>
-            <Video
-              source={require("../videos/video-3.mp4")}
-              isMuted={true}
-              resizeMode="cover"
-              shouldPlay
-              isLooping
-              style={styles.video}
-            />
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
