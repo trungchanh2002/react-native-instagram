@@ -5,8 +5,8 @@ const MessScreen = () => {
     const initialChats = [
         {
             id: 1,
-            name: "Friend 1",
-            avatar: require("../assets/Avatar.png"),
+            name: "joshua_l",
+            avatar: require("../assets/avatar_emp_1.png"),
             messages: [
                 { text: "Hello!", sender: "Friend 1", timestamp: 1637835600000 },
                 { text: "Hi there!", sender: "you", timestamp: 1637835660000 },
@@ -14,44 +14,43 @@ const MessScreen = () => {
         },
         {
             id: 2,
-            name: "Friend 1",
-            avatar: require("../assets/Avatar.png"),
+            name: "karennne",
+            avatar: require("../assets/avatar_emp_2.png"),
             messages: [
-                { text: "Hello!", sender: "Friend 1", timestamp: 1637835600000 },
-                { text: "Hi there!", sender: "you", timestamp: 1637835660000 },
+                { text: "Do u have time to talk about this", sender: "Friend 1", timestamp: 1637835600000 },
             ],
         },
         {
             id: 3,
-            name: "Friend 1",
-            avatar: require("../assets/Avatar.png"),
+            name: "martini_rond",
+            avatar: require("../assets/avatar_emp_3.png"),
             messages: [
                 { text: "Hello!", sender: "Friend 1", timestamp: 1637835600000 },
-                { text: "Hi there!", sender: "you", timestamp: 1637835660000 },
+                { text: "Fine thanks!", sender: "you", timestamp: 1637835660000 },
             ],
         },
         {
             id: 4,
-            name: "Friend 1",
-            avatar: require("../assets/Avatar.png"),
+            name: "andrewww_",
+            avatar: require("../assets/avatar_emp_4.png"),
             messages: [
                 { text: "Hello!", sender: "Friend 1", timestamp: 1637835600000 },
-                { text: "Hi there!", sender: "you", timestamp: 1637835660000 },
+                { text: "Ola!", sender: "you", timestamp: 1637835660000 },
             ],
         },
         {
             id: 5,
-            name: "Friend 1",
-            avatar: require("../assets/Avatar.png"),
+            name: "kiero_d",
+            avatar: require("../assets/avatar_emp_5.png"),
             messages: [
                 { text: "Hello!", sender: "Friend 1", timestamp: 1637835600000 },
-                { text: "Hi there!", sender: "you", timestamp: 1637835660000 },
+                { text: "How fast can u run", sender: "you", timestamp: 1637835660000 },
             ],
         },
         {
             id: 6,
-            name: "Friend 1",
-            avatar: require("../assets/Avatar.png"),
+            name: "maxjacobson",
+            avatar: require("../assets/avatar_emp_2.png"),
             messages: [
                 { text: "Hello!", sender: "Friend 1", timestamp: 1637835600000 },
                 { text: "Hi there!", sender: "you", timestamp: 1637835660000 },
@@ -59,38 +58,37 @@ const MessScreen = () => {
         },
         {
             id: 7,
-            name: "Friend 1",
-            avatar: require("../assets/Avatar.png"),
+            name: "m_humphrey",
+            avatar: require("../assets/avatar_emp_1.png"),
             messages: [
                 { text: "Hello!", sender: "Friend 1", timestamp: 1637835600000 },
-                { text: "Hi there!", sender: "you", timestamp: 1637835660000 },
             ],
         },
         {
             id: 8,
-            name: "Friend 1",
-            avatar: require("../assets/Avatar.png"),
+            name: "jamie.franco",
+            avatar: require("../assets/avatar_emp_2.png"),
             messages: [
-                { text: "Hello!", sender: "Friend 1", timestamp: 1637835600000 },
-                { text: "Hi there!", sender: "you", timestamp: 1637835660000 },
+                { text: "This so beauty bro@", sender: "Friend 1", timestamp: 1637835600000 },
+              
             ],
         },
-        // Add more chat objects as needed
     ];
 
     const [chats, setChats] = useState(initialChats);
     const [searchInput, setSearchInput] = useState("");
 
-    const renderChatItem = ({ item }) => (
-        <View style={styles.chatItem}>
-            <Image source={item.avatar} style={styles.avatar} />
-            <View style={styles.chatInfo}>
-                <Text style={styles.name}>{item.name}</Text>
-                <Text style={styles.lastMessage}>{getLastMessageText(item.messages)}</Text>
-                <Text style={styles.timestamp}>{formatTimestamp(getLastMessageTimestamp(item.messages))}</Text>
+        const renderChatItem = ({ item }) => (
+            <View style={styles.chatItem}>
+                <Image source={item.avatar} style={styles.avatar} />
+                <View style={styles.chatInfo}>
+                    <Text style={styles.name}>{item.name}</Text>
+                    <Text style={styles.lastMessage}>{getLastMessageText(item.messages)}</Text>
+                    <Text style={styles.timestamp}>{formatTimestamp(getLastMessageTimestamp(item.messages))}</Text>
+                </View>
+                <Image source={require("../assets/icon-camera.svg")} style={styles.cameraIcon} />
             </View>
-        </View>
-    );
+        );
 
     const getLastMessageText = (messages) => {
         const lastMessage = messages[messages.length - 1];
@@ -101,8 +99,6 @@ const MessScreen = () => {
         const lastMessage = messages[messages.length - 1];
         return lastMessage.timestamp;
     };
-
-    // Format timestamp to a human-readable string
     const formatTimestamp = (timestamp) => {
         const date = new Date(timestamp);
         const hours = date.getHours();
@@ -134,6 +130,7 @@ const styles = StyleSheet.create({
         height: 40,
         borderColor: "gray",
         borderWidth: 1,
+        borderRadius: 20,
         marginBottom: 10,
         padding: 10,
     },
@@ -163,6 +160,10 @@ const styles = StyleSheet.create({
     timestamp: {
         color: "#888",
         fontSize: 12,
+    },
+    cameraIcon: {
+        width: 20,
+        height: 20,
     },
 });
 
