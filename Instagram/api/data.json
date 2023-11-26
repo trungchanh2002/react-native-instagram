@@ -46,14 +46,6 @@
       "time": "1hour",
       "comment": "This is a comment 😓😓",
       "like": "156"
-    },
-    {
-      "id": 6,
-      "avatar": "avatar_emp_1.png",
-      "username": "chanh_dev",
-      "time": "1hour",
-      "comment": "This is a comment 😓😓",
-      "like": "200"
     }
   ],
   "user": [
@@ -61,7 +53,7 @@
       "id": 1,
       "username": "chanh_dev",
       "name": "Chanh",
-      "avatar": "story-2.png",
+      "avatar": "story-3.png",
       "post": "10",
       "followers": "9,005",
       "following": "88",
