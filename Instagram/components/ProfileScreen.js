@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Modal } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function ProfileScreen({ navigation }) {
   const [userData, setUserData] = useState(null);
@@ -120,8 +121,10 @@ export default function ProfileScreen({ navigation }) {
           <ScrollView horizontal style={{ paddingLeft: 5, marginRight: 10, marginTop: 10 }}>
             {stories.map((item, index) => (
               <View style={{ alignItems: "center" }} key={index}>
-                <Image style={{ width: 65, height: 65, marginRight: 5 }} source={item.image} />
-                <Text>{item.text}</Text>
+                <TouchableOpacity onPress={goStoryScreen}>
+                  <Image style={{ width: 65, height: 65, marginRight: 5 }} source={item.image} />
+                  <Text>{item.text}</Text>
+                </TouchableOpacity>
               </View>
             ))}
           </ScrollView>
@@ -165,20 +168,47 @@ export default function ProfileScreen({ navigation }) {
       )}
       {/* Modal Setting */}
       <Modal animationType="slide" transparent={true} visible={statusModal}>
-        <ScrollView style={{ width: "100%", height: 350, position: "absolute", bottom: 0, backgroundColor: "white", borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
+        <ScrollView style={{ width: 250, height: 420, position: "absolute", bottom: 0, right: 0, backgroundColor: "white", borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
           <View style={{ alignItems: "center", paddingTop: 5 }}>
             <TouchableOpacity onPress={closeModal}>
-              <Text style={{ borderRadius: 5, backgroundColor: "gray", width: 100, height: 6 }}></Text>
+              <Text style={{ borderRadius: 5, backgroundColor: "gray", width: 60, height: 5 }}></Text>
             </TouchableOpacity>
           </View>
-          <View style={{ paddingLeft: 20, paddingTop: 20 }}>
-            <Text style={styles.text_setting}>Cài đặt quyền riêng tư</Text>
-            <Text style={styles.text_setting}>Cài đặt quyền riêng tư</Text>
-            <Text style={styles.text_setting}>Cài đặt quyền riêng tư</Text>
-            <Text style={styles.text_setting}>Cài đặt quyền riêng tư</Text>
-            <Text style={styles.text_setting}>Cài đặt quyền riêng tư</Text>
-            <Text style={styles.text_setting}>Cài đặt quyền riêng tư</Text>
-            <Text style={styles.text_setting}>Đăng xuất</Text>
+          <View style={{ paddingLeft: 15, paddingTop: 15 }}>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <AntDesign style={{ marginRight: 6 }} name="setting" size={24} color="black" />
+              <Text style={styles.text_setting}>Cài đặt quyền riêng tư</Text>
+            </View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <AntDesign style={{ marginRight: 6 }} name="setting" size={24} color="black" />
+              <Text style={styles.text_setting}>Cài đặt quyền riêng tư</Text>
+            </View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <AntDesign style={{ marginRight: 6 }} name="setting" size={24} color="black" />
+              <Text style={styles.text_setting}>Cài đặt quyền riêng tư</Text>
+            </View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <AntDesign style={{ marginRight: 6 }} name="setting" size={24} color="black" />
+              <Text style={styles.text_setting}>Cài đặt quyền riêng tư</Text>
+            </View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <AntDesign style={{ marginRight: 6 }} name="setting" size={24} color="black" />
+              <Text style={styles.text_setting}>Cài đặt quyền riêng tư</Text>
+            </View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <AntDesign style={{ marginRight: 5 }} name="setting" size={24} color="black" />
+              <Text style={styles.text_setting}>Cài đặt quyền riêng tư</Text>
+            </View>
+            <TouchableOpacity
+              onPress={() => {
+                setstatusModal(false);
+                navigation.navigate("LoginScreen");
+              }}>
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <AntDesign style={{ marginRight: 5 }} name="logout" size={20} color="black" />
+                <Text style={styles.text_setting}>Đăng xuất</Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </Modal>
@@ -192,10 +222,11 @@ const styles = StyleSheet.create({
   },
   text_setting: {
     borderBottomWidth: 1,
-    width: "70%",
+    borderColor: "#E1E1E1",
     fontSize: 16,
     fontWeight: "600",
-    padding:10,
+    paddingVertical: 15,
+    width: 180,
   },
   input: {
     height: 40,

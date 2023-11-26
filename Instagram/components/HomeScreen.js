@@ -40,6 +40,16 @@ export default function HomeScreen({ navigation }) {
     { id: 7, image: require("../assets/story-1.png"), text: "chanh.aaa" },
     { id: 8, image: require("../assets/story-2.png"), text: "chanh.aaa" },
     { id: 9, image: require("../assets/story-3.png"), text: "chanh.aaa" },
+    { id: 10, image: require("../assets/story-5.png"), text: "chanh.aaa" },
+    { id: 11, image: require("../assets/story-3.png"), text: "chanh.aaa" },
+    { id: 12, image: require("../assets/story-1.png"), text: "chanh.aaa" },
+    { id: 13, image: require("../assets/story-2.png"), text: "chanh.aaa" },
+    { id: 14, image: require("../assets/story-3.png"), text: "chanh.aaa" },
+    { id: 15, image: require("../assets/story-5.png"), text: "chanh.aaa" },
+    { id: 16, image: require("../assets/story-3.png"), text: "chanh.aaa" },
+    { id: 17, image: require("../assets/story-1.png"), text: "chanh.aaa" },
+    { id: 18, image: require("../assets/story-2.png"), text: "chanh.aaa" },
+    { id: 19, image: require("../assets/story-3.png"), text: "chanh.aaa" },
   ];
 
   return (
