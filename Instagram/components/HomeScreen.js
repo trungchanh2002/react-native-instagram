@@ -3,6 +3,17 @@ import React, { useState, useEffect } from "react";
 import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity, TextInput, FlatList, Modal } from "react-native";
 
 export default function HomeScreen({ navigation }) {
+  const [data, setData] = useState([]);
+  const [isModalVisible, setModalVisible] = useState(null);
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+  useEffect(() => {
+    fetch("http://localhost:3000/comments")
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
   const goNotiScreen = () => {
     navigation.navigate("NotificationScreen");
   };
@@ -15,9 +26,13 @@ export default function HomeScreen({ navigation }) {
     navigation.navigate("StoryScreen");
   };
 
+  const handleCmt = () => {
+    setModalVisible(true);
+  };
+
   const stories = [
-    { id: 1, image: require("../assets/story-0.png"), text: "chanh.dev" },
-    { id: 2, image: require("../assets/story-2.png"), text: "messi.lion" },
+    { id: 1, image: require("../assets/story-0.png"), text: "chanh_dev" },
+    { id: 2, image: require("../assets/story-2.png"), text: "messi_dev" },
     { id: 3, image: require("../assets/story-3.png"), text: "cristian.dev" },
     { id: 4, image: require("../assets/story-4.png"), text: "daotron.mm" },
     { id: 5, image: require("../assets/story-5.png"), text: "chanh.aaa" },
@@ -25,14 +40,65 @@ export default function HomeScreen({ navigation }) {
     { id: 7, image: require("../assets/story-1.png"), text: "chanh.aaa" },
     { id: 8, image: require("../assets/story-2.png"), text: "chanh.aaa" },
     { id: 9, image: require("../assets/story-3.png"), text: "chanh.aaa" },
+    { id: 10, image: require("../assets/story-5.png"), text: "chanh.aaa" },
+    { id: 11, image: require("../assets/story-3.png"), text: "chanh.aaa" },
+    { id: 12, image: require("../assets/story-1.png"), text: "chanh.aaa" },
+    { id: 13, image: require("../assets/story-2.png"), text: "chanh.aaa" },
+    { id: 14, image: require("../assets/story-3.png"), text: "chanh.aaa" },
+    { id: 15, image: require("../assets/story-5.png"), text: "chanh.aaa" },
+    { id: 16, image: require("../assets/story-3.png"), text: "chanh.aaa" },
+    { id: 17, image: require("../assets/story-1.png"), text: "chanh.aaa" },
+    { id: 18, image: require("../assets/story-2.png"), text: "chanh.aaa" },
+    { id: 19, image: require("../assets/story-3.png"), text: "chanh.aaa" },
   ];
 
   return (
     <ScrollView>
-      {/* ModalComment */}
-      <Modal animationType="slide" transparent={true} visible={false}>
-        <View style={{ alignItems: "center", bottom: 0, position: "absolute", width: "100%", height: 300, padding: 5, backgroundColor: "pink" }}></View>
+      {/* Modal Comments */}
+      <Modal animationType="slide" transparent={true} visible={isModalVisible}>
+        <View style={{ width: "100%", height: 420, position: "absolute", bottom: 0, backgroundColor: "white", borderRadius: 20 }}>
+          <View style={{ alignItems: "center", paddingTop: 5 }}>
+            <TouchableOpacity onPress={closeModal}>
+              <Text style={{ borderRadius: 5, backgroundColor: "gray", width: 100, height: 6 }}></Text>
+            </TouchableOpacity>
+            <Text style={{ fontSize: 15, fontWeight: "bold", marginTop: 10 }}>Commnets</Text>
+          </View>
+          <View>
+            {data.map((comment) => (
+              <View key={comment.id}>
+                <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: 10, marginTop: 10 }}>
+                  <View style={{ flexDirection: "column" }}>
+                    <View style={{ flexDirection: "row", alignItems: "center" }}>
+                      <Image source={require(`../assets/${comment.avatar}`)} style={{ width: 32, height: 32, marginRight: 5 }} />
+                      <View style={{ flexDirection: "column" }}>
+                        <View style={{ flexDirection: "row" }}>
+                          <Text style={{ marginRight: 5, fontWeight: "600" }}>{comment.username}</Text>
+                          <Text style={{ color: "#A4A4A4" }}>{comment.time}</Text>
+                        </View>
+                        <Text>{comment.comment}</Text>
+                      </View>
+                    </View>
+                    <View style={{ flexDirection: "row", marginHorizontal: 37 }}>
+                      <Text style={{ marginRight: 10, color: "#A4A4A4" }}>Reply</Text>
+                      <Text style={{ color: "#A4A4A4" }}>See translation</Text>
+                    </View>
+                  </View>
+                  <View style={{ flexDirection: "column" }}>
+                    <Image style={{ width: 20, height: 20 }} source={require("../assets/shape-icon.png")} />
+                    <Text>{comment.like}</Text>
+                  </View>
+                </View>
+              </View>
+            ))}
+          </View>
+          <View style={{ flexDirection: "row", alignItems: "center", bottom: 0, position: "absolute", width: "100%", padding: 5 }}>
+            <Image style={{ width: 40, height: 40, marginRight: 5 }} source={require("../assets/avatar_emp_1.png")} />
+            <TextInput style={{ borderWidth: 2, borderRadius: 15, color: "black", borderColor: "gray", height: 38, width: 300, opacity: 0.8, paddingLeft: 10 }} placeholder="Send Message" />
+            <Image style={{ width: 25, height: 25, marginLeft: 5 }} source={require("../assets/chat-icon.png")} />
+          </View>
+        </View>
       </Modal>
+
       <View style={styles.container}>
         <View style={styles.home_header}>
           <Image source={require("../assets/Logo dropdown.png")} style={styles.logo_insta} />
@@ -73,6 +139,7 @@ export default function HomeScreen({ navigation }) {
             postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt"
             postTime="30 minutes ago"
+            handleCmt={handleCmt}
           />
           {/* Post 2 */}
           <Post
@@ -84,6 +151,7 @@ export default function HomeScreen({ navigation }) {
             postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt"
             postTime="60 minutes ago"
+            handleCmt={handleCmt}
           />
 
           {/* Post 3 */}
@@ -96,6 +164,7 @@ export default function HomeScreen({ navigation }) {
             postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt"
             postTime="30 minutes ago"
+            handleCmt={handleCmt}
           />
           {/* Post 4 */}
           <Post
@@ -107,6 +176,7 @@ export default function HomeScreen({ navigation }) {
             postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt"
             postTime="30 minutes ago"
+            handleCmt={handleCmt}
           />
 
           {/* Post 5 */}
@@ -119,6 +189,7 @@ export default function HomeScreen({ navigation }) {
             postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt"
             postTime="20 minutes ago"
+            handleCmt={handleCmt}
           />
         </View>
       </View>
@@ -126,7 +197,7 @@ export default function HomeScreen({ navigation }) {
   );
 }
 
-const Post = ({ avatarSource, postImageSource, isSponsored, postName, postText, postCaption, postTime }) => {
+const Post = ({ avatarSource, postImageSource, isSponsored, postName, postText, postCaption, postTime, handleCmt }) => {
   const [number, setNumber] = useState(700);
   const [isPink, setIsPink] = useState(false);
   const [showComment, setShowComment] = useState(false);
@@ -139,6 +210,11 @@ const Post = ({ avatarSource, postImageSource, isSponsored, postName, postText, 
   const handleShape = () => {
     setIsPink(!isPink);
     setNumber(isPink ? number - 1 : number + 1);
+  };
+
+  const handleCmt1 = () => {
+    handleCmt();
+    console.log("ok");
   };
 
   return (
@@ -166,7 +242,9 @@ const Post = ({ avatarSource, postImageSource, isSponsored, postName, postText, 
             <TouchableOpacity onPress={handleShape}>
               <Image source={isPink ? require("../assets/shape-pink-icon.png") : require("../assets/shape-icon.png")} style={styles.icon_post} />
             </TouchableOpacity>
-            <Image source={require("../assets/cmt-icon.png")} style={styles.icon_post} />
+            <TouchableOpacity onPress={handleCmt1}>
+              <Image source={require("../assets/cmt-icon.png")} style={styles.icon_post} />
+            </TouchableOpacity>
             <Image source={require("../assets/chat-icon.png")} style={styles.icon_post} />
           </View>
           <View style={styles.iconGroupRight}>
