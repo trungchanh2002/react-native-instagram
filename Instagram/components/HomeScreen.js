@@ -31,8 +31,8 @@ export default function HomeScreen({ navigation }) {
   };
 
   const stories = [
-    { id: 1, image: require("../assets/story-0.png"), text: "chanh.dev" },
-    { id: 2, image: require("../assets/story-2.png"), text: "messi.lion" },
+    { id: 1, image: require("../assets/story-0.png"), text: "chanh_dev" },
+    { id: 2, image: require("../assets/story-2.png"), text: "messi_dev" },
     { id: 3, image: require("../assets/story-3.png"), text: "cristian.dev" },
     { id: 4, image: require("../assets/story-4.png"), text: "daotron.mm" },
     { id: 5, image: require("../assets/story-5.png"), text: "chanh.aaa" },
