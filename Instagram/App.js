@@ -24,9 +24,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-      // initialRouteName="StoryScreen"
-      >
+      <Stack.Navigator>
         <Stack.Screen name="Tabs" component={TabsComponent} options={{ headerShown: false }} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="StoryScreen" component={StoryScreen} options={{ headerShown: false }} />
@@ -49,8 +47,7 @@ export function TabsComponent() {
         showLabel: false,
         activeTintColor: "black", // Màu khi được chọn
         inactiveTintColor: "gray", // Màu khi không được chọn
-      }}
-    >
+      }}>
       <Tab.Screen
         name="Home"
         component={HomeScreen}

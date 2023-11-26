@@ -1,15 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  PanResponder,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  Modal,
-  TextInput,
-} from "react-native";
+import { StyleSheet, Text, View, Image, PanResponder, TouchableOpacity, TouchableWithoutFeedback, Modal, TextInput } from "react-native";
 import { Video } from "expo-av";
 
 export default function ReelsScreen({ navigation }) {
@@ -64,7 +54,7 @@ export default function ReelsScreen({ navigation }) {
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderRelease: (_, gestureState) => handleSwipe(gestureState),
-    })
+    }),
   ).current;
 
   const handleShape = () => {
@@ -142,46 +132,27 @@ export default function ReelsScreen({ navigation }) {
         />
       </View>
       <View style={styles.location_add}>
-        <Image
-          source={require("../assets/add-white-icon.png")}
-          style={styles.icon}
-        />
+        <Image source={require("../assets/add-white-icon.png")} style={styles.icon} />
       </View>
       <View style={styles.location_insta}>
-        <Image
-          source={require("../assets/instagram-logo.png")}
-          style={{ width: 128, height: 30 }}
-        />
+        <Image source={require("../assets/instagram-logo.png")} style={{ width: 128, height: 30 }} />
       </View>
 
       <View style={styles.location_all_icon}>
         <View style={styles.location_shape}>
           <TouchableOpacity onPress={handleShape}>
-            <Image
-              source={
-                isPink
-                  ? require("../assets/shape-pink-icon.png")
-                  : require("../assets/shape-white-icon.png")
-              }
-              style={styles.icon}
-            />
+            <Image source={isPink ? require("../assets/shape-pink-icon.png") : require("../assets/shape-white-icon.png")} style={styles.icon} />
           </TouchableOpacity>
           <Text style={styles.text_icon}>{number}</Text>
         </View>
         <View style={styles.location_shape}>
           <TouchableOpacity onPress={handleCmt}>
-            <Image
-              source={require("../assets/cmt-white-icon.png")}
-              style={styles.icon}
-            />
+            <Image source={require("../assets/cmt-white-icon.png")} style={styles.icon} />
             <Text style={styles.text_icon}>{videos[num].comment}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.location_shape}>
-          <Image
-            source={require("../assets/chat-white-icon.png")}
-            style={styles.icon}
-          />
+          <Image source={require("../assets/chat-white-icon.png")} style={styles.icon} />
           <Text style={styles.text_icon}>{videos[num].share}</Text>
         </View>
       </View>
@@ -190,9 +161,7 @@ export default function ReelsScreen({ navigation }) {
         <Image source={videos[num].avatarSource} style={styles.image_avatar} />
         <Text style={styles.text_name}>{videos[num].name}</Text>
         <TouchableOpacity style={styles.btn_follow} onPress={handleFollow}>
-          <Text style={styles.text_follow}>
-            {isFollowed ? "Unfollow" : "Follow"}
-          </Text>
+          <Text style={styles.text_follow}>{isFollowed ? "Unfollow" : "Follow"}</Text>
         </TouchableOpacity>
       </View>
 
@@ -202,84 +171,45 @@ export default function ReelsScreen({ navigation }) {
 
       <View style={styles.icon_map}>
         <TouchableWithoutFeedback onPress={pause}>
-          <Image
-            source={require("../assets/icon-play.png")}
-            style={[styles.icon_hide, { opacity: isClicked ? 0.8 : 0.0 }]}
-          />
+          <Image source={require("../assets/icon-play.png")} style={[styles.icon_hide, { opacity: isClicked ? 0.8 : 0.0 }]} />
         </TouchableWithoutFeedback>
       </View>
-
+      {/* Modal Comments */}
       <Modal animationType="slide" transparent={true} visible={isModalVisible}>
-        <View
-          style={{
-            width: "100%",
-            height: 500,
-            position: "absolute",
-            bottom: 0,
-            backgroundColor: "white",
-            borderRadius: 20,
-          }}
-        >
-          <View style={{ alignItems: "center" }}>
+        <View style={{ width: "100%", height: 500, position: "absolute", bottom: 0, backgroundColor: "white", borderRadius: 20 }}>
+          <View style={{ alignItems: "center", paddingTop: 5 }}>
             <TouchableOpacity onPress={closeModal}>
-              <Image
-                style={{ width: 140, height: 4, marginTop: 5 }}
-                source={require("../assets/icon-line.png")}
-              />
+              <Text style={{ borderRadius: 5, backgroundColor: "gray", width: 100, height: 6 }}></Text>
             </TouchableOpacity>
-            <Text style={{ fontSize: 15, fontWeight: "bold", marginTop: 10 }}>
-              Commnets
-            </Text>
+            <Text style={{ fontSize: 15, fontWeight: "bold", marginTop: 10 }}>Commnets</Text>
           </View>
 
           <View>
             {data.map((comment) => (
               <View key={comment.id}>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    marginHorizontal: 10,
-                    marginTop: 10,
-                  }}
-                >
+                <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: 10, marginTop: 10 }}>
                   <View style={{ flexDirection: "column" }}>
                     <View
                       style={{
                         flexDirection: "row",
                         alignItems: "center",
-                      }}
-                    >
-                      <Image
-                        source={require(`../assets/${comment.avatar}`)}
-                        style={{ width: 32, height: 32, marginRight: 5 }}
-                      />
+                      }}>
+                      <Image source={require(`../assets/${comment.avatar}`)} style={{ width: 32, height: 32, marginRight: 5 }} />
                       <View style={{ flexDirection: "column" }}>
                         <View style={{ flexDirection: "row" }}>
-                          <Text style={{ marginRight: 5, fontWeight: "600" }}>
-                            {comment.username}
-                          </Text>
-                          <Text style={{ color: "#A4A4A4" }}>
-                            {comment.time}
-                          </Text>
+                          <Text style={{ marginRight: 5, fontWeight: "600" }}>{comment.username}</Text>
+                          <Text style={{ color: "#A4A4A4" }}>{comment.time}</Text>
                         </View>
                         <Text>{comment.comment}</Text>
                       </View>
                     </View>
-                    <View
-                      style={{ flexDirection: "row", marginHorizontal: 37 }}
-                    >
-                      <Text style={{ marginRight: 10, color: "#A4A4A4" }}>
-                        Reply
-                      </Text>
+                    <View style={{ flexDirection: "row", marginHorizontal: 37 }}>
+                      <Text style={{ marginRight: 10, color: "#A4A4A4" }}>Reply</Text>
                       <Text style={{ color: "#A4A4A4" }}>See translation</Text>
                     </View>
                   </View>
                   <View style={{ flexDirection: "column" }}>
-                    <Image
-                      style={{ width: 20, height: 20 }}
-                      source={require("../assets/shape-icon.png")}
-                    />
+                    <Image style={{ width: 20, height: 20 }} source={require("../assets/shape-icon.png")} />
                     <Text>{comment.like}</Text>
                   </View>
                 </View>
@@ -287,35 +217,10 @@ export default function ReelsScreen({ navigation }) {
             ))}
           </View>
 
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              bottom: 0,
-              position: "absolute",
-              width: "100%",
-              padding: 5,
-            }}
-          >
-            <Image
-              style={{ width: 40, height: 40, marginRight: 5 }}
-              source={require("../assets/avatar_emp_1.png")}
-            />
-            <TextInput
-              placeholder="Add Comments"
-              style={{
-                borderWidth: 1,
-                borderRadius: 15,
-                padding: 8,
-                color: "black",
-                width: "80%",
-                borderColor: "#ccc",
-              }}
-            ></TextInput>
-            <Image
-              style={{ width: 25, height: 25, marginLeft: 5 }}
-              source={require("../assets/chat-icon.png")}
-            />
+          <View style={{ flexDirection: "row", alignItems: "center", bottom: 0, position: "absolute", width: "100%", padding: 5 }}>
+            <Image style={{ width: 40, height: 40, marginRight: 5 }} source={require("../assets/avatar_emp_1.png")} />
+            <TextInput style={{ borderWidth: 2, borderRadius: 15, color: "black", borderColor: "gray", height: 38, width: 300, opacity: 0.8, paddingLeft: 10 }} placeholder="Send Message" />
+            <Image style={{ width: 25, height: 25, marginLeft: 5 }} source={require("../assets/chat-icon.png")} />
           </View>
         </View>
       </Modal>

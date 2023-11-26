@@ -1,13 +1,10 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, Modal, StyleSheet } from "react-native";
 
 export default function AddScreen() {
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
-        <Text>AddScreen</Text>
-      </TouchableOpacity>
-      <StatusBar style="auto" />
+      <Text>Add Screen</Text>
     </View>
   );
 }
@@ -15,8 +12,5 @@ export default function AddScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
