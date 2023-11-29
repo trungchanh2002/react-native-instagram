@@ -1,17 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Modal } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { useRoute } from "@react-navigation/native";
 
 export default function ProfileScreen({ navigation }) {
+  const route = useRoute();
+  const { userId, username, password, avatar } = route.params || {};
+  console.log("User ID:", userId);
+  console.log("Username:", username);
+  console.log("Password:", password);
+  console.log("Avatar:", avatar);
   const [userData, setUserData] = useState(null);
   const [statusModal, setstatusModal] = useState(false);
+
+  useEffect(() => {
+    navigation.navigate("Tabs", {
+      screen: "Add",
+      params: {
+        userId: userId,
+        username: username,
+        password: password,
+        avatar: avatar,
+      },
+    });
+  }, []);
 
   useEffect(() => {
     fetch("http://localhost:3000/user")
       .then((response) => response.json())
       .then((data) => {
         // Find the user with ID 1
-        const userWithId1 = data.find((user) => user.id === 1);
+        const userWithId1 = data.find((user) => user.id === userId);
         setUserData(userWithId1);
       })
       .catch((error) => console.error("Error fetching data:", error));

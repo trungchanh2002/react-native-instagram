@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StatusBar, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from "react-native";
+import { Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from "react-native";
 
 export default function LoginScreen({ navigation }) {
   const [username, setUsername] = useState("");
@@ -7,25 +7,29 @@ export default function LoginScreen({ navigation }) {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/user?username=${username}&password=${password}`);
-      const userData = await response.json();
+      const response = await fetch("http://localhost:3000/user");
+      const users = await response.json();
 
-      if (userData.length > 0) {
-        console.log("Login successful");
-        navigation.reset({
-          index: 0,
-          routes: [{ name: "Tabs", state: { routes: [{ name: "Home" }] } }],
+      const user = users.find((u) => u.username.toLowerCase() === username.toLowerCase() && u.password === password);
+
+      if (user) {
+        navigation.navigate("Tabs", {
+          screen: "Profile",
+          params: {
+            userId: user.id,
+            username: user.username,
+            password: user.password,
+            avatar: user.avatar,
+          },
         });
       } else {
-        console.log("Login failed");
-        alert("Login failed. Please try again.");
+        alert("Đăng nhập không thành công");
       }
     } catch (error) {
-      console.error("Error during login:", error);
+      console.error("Lỗi khi gửi yêu cầu đến API:", error);
     }
   };
-
-  const navigateToSignIn = () => {
+  const goSignUpScreen = () => {
     navigation.navigate("SignUpScreen");
   };
 
@@ -47,7 +51,7 @@ export default function LoginScreen({ navigation }) {
 
       <Text style={styles.signInText}>
         Already have an account?{" "}
-        <TouchableOpacity style={styles.signInLink} onPress={navigateToSignIn}>
+        <TouchableOpacity style={styles.signInLink} onPress={goSignUpScreen}>
           Sign Up.
         </TouchableOpacity>
       </Text>
@@ -55,8 +59,6 @@ export default function LoginScreen({ navigation }) {
       <View style={styles.footerContainer}>
         <Text>Instagram or FaceBook</Text>
       </View>
-
-      <StatusBar style="auto" />
     </View>
   );
 }
@@ -80,6 +82,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 16,
     padding: 8,
+    borderRadius: 12,
   },
   button: {
     backgroundColor: "#3498db",

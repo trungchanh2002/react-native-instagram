@@ -1,8 +1,16 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
 import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity, TextInput, FlatList, Modal } from "react-native";
+import { useRoute } from "@react-navigation/native";
 
 export default function HomeScreen({ navigation }) {
+  const route = useRoute();
+  const { userId, username, password, avatar } = route.params || {};
+  console.log("User ID:", userId);
+  console.log("Username:", username);
+  console.log("Password:", password);
+  console.log("Avatar:", avatar);
+
   const [data, setData] = useState([]);
   const [isModalVisible, setModalVisible] = useState(null);
   const closeModal = () => {
@@ -31,15 +39,15 @@ export default function HomeScreen({ navigation }) {
   };
 
   const stories = [
-    { id: 1, image: require("../assets/story-0.png"), text: "chanh_dev" },
-    { id: 2, image: require("../assets/story-2.png"), text: "messi_dev" },
-    { id: 3, image: require("../assets/story-3.png"), text: "cristian.dev" },
+    { id: 1, image: require("../assets/story-0.png"), text: `${username}` },
+    { id: 2, image: require("../assets/story-1.png"), text: `${username}` },
+    { id: 3, image: require("../assets/story-3.png"), text: "crironaldo.dev" },
     { id: 4, image: require("../assets/story-4.png"), text: "daotron.mm" },
     { id: 5, image: require("../assets/story-5.png"), text: "chanh.aaa" },
-    { id: 6, image: require("../assets/story-3.png"), text: "chanh.aaa" },
-    { id: 7, image: require("../assets/story-1.png"), text: "chanh.aaa" },
-    { id: 8, image: require("../assets/story-2.png"), text: "chanh.aaa" },
-    { id: 9, image: require("../assets/story-3.png"), text: "chanh.aaa" },
+    { id: 6, image: require("../assets/story-6.png"), text: "chanh.aaa" },
+    { id: 7, image: require("../assets/story-7.png"), text: "chanh.aaa" },
+    { id: 8, image: require("../assets/story-8.png"), text: "chanh.aaa" },
+    { id: 9, image: require("../assets/story-9.png"), text: "chanh.aaa" },
     { id: 10, image: require("../assets/story-5.png"), text: "chanh.aaa" },
     { id: 11, image: require("../assets/story-3.png"), text: "chanh.aaa" },
     { id: 12, image: require("../assets/story-1.png"), text: "chanh.aaa" },
@@ -51,6 +59,27 @@ export default function HomeScreen({ navigation }) {
     { id: 18, image: require("../assets/story-2.png"), text: "chanh.aaa" },
     { id: 19, image: require("../assets/story-3.png"), text: "chanh.aaa" },
   ];
+
+  const [posts, setPosts] = useState([]);
+
+  const fetchData = () => {
+    fetch("http://localhost:3000/posts")
+      .then((response) => response.json())
+      .then((data) => setPosts(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  };
+
+  useEffect(() => {
+    fetchData(); // Fetch data when the component mounts
+
+    const unsubscribeFocus = navigation.addListener("focus", () => {
+      fetchData(); // Fetch data when the screen comes into focus
+    });
+
+    return () => {
+      unsubscribeFocus(); // Clean up the event listener when the component unmounts
+    };
+  }, [navigation]);
 
   return (
     <ScrollView>
@@ -129,10 +158,73 @@ export default function HomeScreen({ navigation }) {
         </View>
 
         <View>
+          <FlatList
+            data={posts.sort((a, b) => b.id - a.id)} // Sort data in descending order based on id
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+              <View style={styles.home_post}>
+                <View style={styles.post_header}>
+                  <View style={styles.avatar}>
+                    <Image source={require(`../assets/${item.avatar}`)} style={styles.image_avatar} />
+
+                    <View style={{ flexDirection: "column", paddingLeft: 5 }}>
+                      <View style={styles.ruffles}>
+                        <Text style={styles.text2}>{item.username}</Text>
+                        <Image source={require("../assets/verified.png")} style={styles.image_verified} />
+                      </View>
+                      <Text>Được tài trợ</Text>
+                    </View>
+                  </View>
+                </View>
+
+                <View style={styles.post_image}>
+                  <Image source={require(`../assets/${item.imagePost}`)} style={styles.image_post} />
+                </View>
+                <View style={styles.post_info}>
+                  <View style={styles.icon_postinfo}>
+                    <View style={styles.iconGroupLeft}>
+                      <TouchableOpacity>
+                        <Image source={require("../assets/shape-icon.png")} style={styles.icon_post} />
+                      </TouchableOpacity>
+                      <Image source={require("../assets/cmt-icon.png")} style={styles.icon_post} />
+                      <TouchableOpacity onPress={goMessScreen}>
+                        <Image source={require("../assets/chat-icon.png")} style={styles.icon_post} />
+                      </TouchableOpacity>
+                    </View>
+                    <View style={styles.iconGroupRight}>
+                      <TouchableOpacity>
+                        <Image source={require("../assets/share-icon.png")} style={styles.icon_post} />
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                  <Text style={styles.text_likes}>1 Likes</Text>
+                  <View style={styles.caption}>
+                    <Text style={styles.text_caption}>
+                      <Text style={styles.boldText}>Messi </Text>
+                      <Text>{item.status}</Text>
+                    </Text>
+                  </View>
+                  <Text style={styles.text_time}>View all comments</Text>
+                  <View style={styles.commentContainer}>
+                    <Image source={require("../assets/story-0.png")} style={styles.image_avatar_2} />
+                    <TextInput style={styles.commentInput} placeholder="Thêm bình luận ..." placeholderTextColor="#888" />
+                  </View>
+                  <Text style={styles.text_time}>1 min hour</Text>
+                </View>
+              </View>
+            )}
+          />
+        </View>
+
+        {/* -------------- */}
+
+        {/* ----------- */}
+
+        <View>
           {/* Post 1 */}
           <Post
             avatarSource={require("../assets/story-1.png")}
-            postName="Rufles"
+            postName="Messi"
             isSponsored={true}
             postText="Được tài trợ"
             postImageSource={require("../assets/post-1.png")}
@@ -143,7 +235,7 @@ export default function HomeScreen({ navigation }) {
           />
           {/* Post 2 */}
           <Post
-            avatarSource={require("../assets/story-2.png")}
+            avatarSource={require("../assets/story-3.png")}
             postName="Ronaldo"
             isSponsored={true}
             postText="Được tài trợ"
@@ -153,7 +245,6 @@ export default function HomeScreen({ navigation }) {
             postTime="60 minutes ago"
             handleCmt={handleCmt}
           />
-
           {/* Post 3 */}
           <Post
             avatarSource={require("../assets/story-3.png")}
@@ -178,7 +269,6 @@ export default function HomeScreen({ navigation }) {
             postTime="30 minutes ago"
             handleCmt={handleCmt}
           />
-
           {/* Post 5 */}
           <Post
             avatarSource={require("../assets/story-1.png")}
@@ -191,6 +281,17 @@ export default function HomeScreen({ navigation }) {
             postTime="20 minutes ago"
             handleCmt={handleCmt}
           />
+          <Post
+            avatarSource={require("../assets/story-7.png")}
+            postName="Ramos"
+            isSponsored={true}
+            postText="Được tài trợ"
+            postImageSource={require("../assets/post-7.png")}
+            postCaption="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt"
+            postTime="20 minutes ago"
+            handleCmt={handleCmt}
+          />
         </View>
       </View>
     </ScrollView>
@@ -198,7 +299,8 @@ export default function HomeScreen({ navigation }) {
 }
 
 const Post = ({ avatarSource, postImageSource, isSponsored, postName, postText, postCaption, postTime, handleCmt }) => {
-  const [number, setNumber] = useState(700);
+  const [number, setNumber] = useState(200);
+  const [isShare, setIsShare] = useState(true);
   const [isPink, setIsPink] = useState(false);
   const [showComment, setShowComment] = useState(false);
   const navigation = useNavigation();
@@ -215,6 +317,13 @@ const Post = ({ avatarSource, postImageSource, isSponsored, postName, postText, 
   const handleCmt1 = () => {
     handleCmt();
     console.log("ok");
+  };
+  const goMessScreen = () => {
+    navigation.navigate("MessScreen");
+  };
+
+  const handleShare = () => {
+    setIsShare(!isShare);
   };
 
   return (
@@ -245,10 +354,14 @@ const Post = ({ avatarSource, postImageSource, isSponsored, postName, postText, 
             <TouchableOpacity onPress={handleCmt1}>
               <Image source={require("../assets/cmt-icon.png")} style={styles.icon_post} />
             </TouchableOpacity>
-            <Image source={require("../assets/chat-icon.png")} style={styles.icon_post} />
+            <TouchableOpacity onPress={goMessScreen}>
+              <Image source={require("../assets/chat-icon.png")} style={styles.icon_post} />
+            </TouchableOpacity>
           </View>
           <View style={styles.iconGroupRight}>
-            <Image source={require("../assets/share-icon.png")} style={styles.icon_post} />
+            <TouchableOpacity onPress={handleShare}>
+              <Image source={isShare ? require("../assets/share-icon.png") : require("../assets/share-icon-yellow.png")} style={styles.icon_post} />
+            </TouchableOpacity>
           </View>
         </View>
         <Text style={styles.text_likes}>{number} Likes</Text>
@@ -265,9 +378,8 @@ const Post = ({ avatarSource, postImageSource, isSponsored, postName, postText, 
           <View>
             <View style={{ flexDirection: "row" }}>
               <Text style={styles.text_likes}>Ronaldo </Text>
-              <Text>Happy New Year 🤩🤩🤩</Text>
+              <Text>Nice 😂😂😂</Text>
             </View>
-            <Text style={styles.text_likes}>Messi Happy Birth day❤️❤️❤️ </Text>
           </View>
         )}
 

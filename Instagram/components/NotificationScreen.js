@@ -5,120 +5,204 @@ export default function NotificationScreen() {
   const notifications = [
     {
       id: 1,
-      user: "JohnDoe",
+      user: "ankavipul",
       action: "started following you.",
       time: "2 hours ago",
-      avatar: require("../assets/post-1.png"),
+      avatar: require("../assets/avatar_emp_1.png"),
+      status: "New",
     },
     {
       id: 2,
-      user: "JaneDoe",
-      action: "liked your photo.",
+      user: "slotix",
+      action: "started following you.",
       time: "5 hours ago",
-      avatar: require("../assets/post-2.png"),
+      avatar: require("../assets/avatar_emp_2.png"),
+      status: "New",
+     
     },
     {
         id: 3,
-        user: "JohnDoe",
+        user: "lobaseee",
         action: "started following you.",
-        time: "2 hours ago",
+        time: "8 hours ago",
         avatar: require("../assets/post-1.png"),
+        status: "Today",
       },
       {
         id: 4,
         user: "JaneDoe",
-        action: "liked your photo.",
-        time: "5 hours ago",
+        action: "started following you.",
+        time: "9 hours ago",
         avatar: require("../assets/post-2.png"),
+        status: "Today",
       },
       {
         id: 5,
-        user: "JohnDoe",
+        user: "holaose",
         action: "started following you.",
-        time: "2 hours ago",
-        avatar: require("../assets/post-1.png"),
+        time: "14 hours ago",
+        avatar: require("../assets/avatar_emp_3.png"),
+        status: "Today",
       },
       {
         id: 6,
-        user: "JaneDoe",
+        user: "kingston",
         action: "liked your photo.",
-        time: "5 hours ago",
-        avatar: require("../assets/post-2.png"),
+        time: "20 hours ago",
+        avatar: require("../assets/avatar_emp_4.png"),
+        image: require("../assets/image.png"),
+        status: "Today",
+        
       },
       {
         id: 7,
-        user: "JohnDoe",
-        action: "started following you.",
-        time: "2 hours ago",
-        avatar: require("../assets/post-1.png"),
-      },
-      {
-        id: 8,
-        user: "JaneDoe",
+        user: "hapyyyyy",
         action: "liked your photo.",
-        time: "5 hours ago",
-        avatar: require("../assets/post-2.png"),
+        time: " 1 day ago",
+        avatar: require("../assets/avatar_emp_4.png"),
+        image: require("../assets/image.png"),
+        status: "This Week",
+        
       },
+    
   ];
 
   const handleNotificationPress = (notification) => {
     console.log("Notification pressed:", notification);
   };
 
-  return (
-    <View style={styles.container}>
-      <FlatList
-        data={notifications}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.notificationItem}
-            onPress={() => handleNotificationPress(item)}
-          >
-            <Image source={item.avatar} style={styles.avatar} />
-            <View style={styles.notificationContent}>
-              <Text>
-                <Text style={styles.username}>{item.user}</Text>{" "}
-                {item.action}
-              </Text>
-              <Text style={styles.time}>{item.time}</Text>
-            </View>
-          </TouchableOpacity>
-        )}
-      />
-    </View>
-  );
+ const newNotifications = notifications.filter((item) => item.status === "New");
+ const todayNotifications = notifications.filter((item) => item.status === "Today");
+ const thisWeekNotifications = notifications.filter((item) => item.status === "This Week");
+
+ return (
+   <View style={styles.container}>
+     <Text style={{ fontSize: 20, fontWeight: "bold", marginBottom: 16 }}>
+       Follow Requests 
+     </Text>
+     {newNotifications.length > 0 && (
+       <>
+         <Text style={styles.sectionHeader}>New</Text>
+         <FlatList
+           data={newNotifications}
+           keyExtractor={(item) => item.id.toString()}
+           renderItem={({ item }) => (  
+               <View>
+                 <TouchableOpacity
+                   style={styles.notificationItem}
+                   onPress={() => handleNotificationPress(item)}
+                 >
+                   <Image source={item.avatar} style={styles.avatar} />
+                   <View style={styles.notificationContent}>
+                     <Text>
+                       <Text style={styles.username}>{item.user}</Text>{" "}
+                       {item.action}
+                     </Text>
+                     <Text style={styles.time}>{item.time}</Text>
+                   </View>
+                   <Image source={item.image} style={styles.image} />
+                 </TouchableOpacity>
+               </View>
+           )}
+         />
+       </>
+     )}
+     {todayNotifications.length > 0 && (
+       <>
+         <Text style={styles.sectionHeader}>Today</Text>
+         <FlatList
+           data={todayNotifications}
+           keyExtractor={(item) => item.id.toString()}
+           renderItem={({ item }) => (
+               <View>
+                 <TouchableOpacity
+                   style={styles.notificationItem}
+                   onPress={() => handleNotificationPress(item)}
+                 >
+                   <Image source={item.avatar} style={styles.avatar} />
+                   <View style={styles.notificationContent}>
+                     <Text>
+                       <Text style={styles.username}>{item.user}</Text>{" "}
+                       {item.action}
+                     </Text>
+                     <Text style={styles.time}>{item.time}</Text>
+                   </View>
+                   <Image source={item.image} style={styles.image} />
+                 </TouchableOpacity>
+               </View>
+           )}
+         />
+       </>
+     )}
+     {thisWeekNotifications.length > 0 && (
+       <>
+         <Text style={styles.sectionHeader}>This Week</Text>
+         <FlatList
+           data={thisWeekNotifications}
+           keyExtractor={(item) => item.id.toString()}
+           renderItem={({ item }) => (
+               <View>
+                 <TouchableOpacity
+                   style={styles.notificationItem}
+                   onPress={() => handleNotificationPress(item)}
+                 >
+                   <Image source={item.avatar} style={styles.avatar} />
+                   <View style={styles.notificationContent}>
+                     <Text>
+                       <Text style={styles.username}>{item.user}</Text>{" "}
+                       {item.action}
+                     </Text>
+                     <Text style={styles.time}>{item.time}</Text>
+                   </View>
+                   <Image source={item.image} style={styles.image} />
+                 </TouchableOpacity>
+               </View>
+           )}
+         />
+       </>
+     )}
+   </View>
+ );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    padding: 16,
-  },
-  notificationItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: 12,
-    marginVertical: 8,
-    borderRadius: 8,
-    backgroundColor: "#f5f5f5",
-    elevation: 2,
-  },
-  avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    marginRight: 12,
-  },
-  notificationContent: {
-    flex: 1,
-  },
-  username: {
-    fontWeight: "bold",
-  },
-  time: {
-    color: "#888",
-  },
+ container: {
+   flex: 1,
+   backgroundColor: "#fff",
+   padding: 16,
+ },
+ notificationItem: {
+   flexDirection: "row",
+   alignItems: "center",
+   justifyContent: "space-between",
+   padding: 12,
+   marginVertical: 8,
+   borderRadius: 8,
+   backgroundColor: "#f5f5f5",
+   elevation: 2,
+ },
+ avatar: {
+   width: 40,
+   height: 40,
+   borderRadius: 20,
+   marginRight: 12,
+ },
+ notificationContent: {
+   flex: 1,
+ },
+ username: {
+   fontWeight: "bold",
+ },
+ time: {
+   color: "#888",
+ },
+ image: {
+   width: 40,
+   height: 40,
+ },
+ sectionHeader: {
+   fontSize: 18,
+   fontWeight: "bold",
+   marginTop: 16,
+ },
 });

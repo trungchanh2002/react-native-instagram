@@ -87,7 +87,7 @@ export default function ReelsScreen({ navigation }) {
       comment: "100",
       share: "200",
       captinon: "Hello Ervery One",
-      name: "cristian.no",
+      name: "cristian_no",
     },
     {
       id: 2,
@@ -97,7 +97,7 @@ export default function ReelsScreen({ navigation }) {
       comment: "281",
       share: "2.4k",
       captinon: "Xin chao moi nguoi!",
-      name: "messi.lionel",
+      name: "mbappe_dev",
     },
     {
       id: 3,
@@ -107,7 +107,7 @@ export default function ReelsScreen({ navigation }) {
       comment: "171",
       share: "1.9k",
       captinon: "Xin chao moi nguoi!",
-      name: "messi.lionel",
+      name: "neymar_dev",
     },
     {
       id: 4,
@@ -116,7 +116,7 @@ export default function ReelsScreen({ navigation }) {
       like: "480",
       comment: "565",
       share: "2.2k",
-      captinon: "Xin chao moi nguoi!",
+      captinon: "Xin chao  nha",
       name: "messi.lionel",
     },
     {
@@ -126,8 +126,8 @@ export default function ReelsScreen({ navigation }) {
       like: "678",
       comment: "555",
       share: "2.2k",
-      captinon: "Xin chao moi nguoi!",
-      name: "messi.lionel",
+      captinon: "Hellooooo",
+      name: "rammos_dev",
     },
   ];
 

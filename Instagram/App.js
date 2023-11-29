@@ -17,6 +17,7 @@ import NotificationScreen from "./components/NotificationScreen";
 import LoginScreen from "./components/LoginScreen";
 import SignUpScreen from "./components/SignUpScreen";
 import ProfileFollowing from "./components/ProfileFollowing";
+import PostScreen from "./components/PostScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -24,7 +25,9 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+      initialRouteName="LoginScreen"
+      >
         <Stack.Screen name="Tabs" component={TabsComponent} options={{ headerShown: false }} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="StoryScreen" component={StoryScreen} options={{ headerShown: false }} />
@@ -32,6 +35,7 @@ export default function App() {
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} options={{ headerShown: false }} />
         <Stack.Screen name="ProfileFollowing" component={ProfileFollowing} options={{ headerShown: false }} />
         <Stack.Screen name="NotificationScreen" component={NotificationScreen} />
+        <Stack.Screen name="PostScreen" component={PostScreen} options={{ headerShown: false }} />
         <Stack.Screen name="MessScreen" component={MessScreen} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -80,7 +84,7 @@ export function TabsComponent() {
         name="Profile"
         component={ProfileScreen}
         options={{
-          tabBarIcon: ({ size }) => <Image source={require("./assets/avatar_emp_1.png")} style={{ width: size + 2, height: size + 2 }} />,
+          tabBarIcon: ({ size }) => <Image source={require("./assets/story-1.png")} style={{ width: size + 2, height: size + 2 }} />,
         }}
       />
     </Tab.Navigator>

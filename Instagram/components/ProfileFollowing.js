@@ -50,7 +50,7 @@ export default function ProfileFollowing({ navigation }) {
                 flexDirection: "row",
                 alignItems: "center",
               }}>
-              <Ionicons name="chevron-back" size={28} color="black" style={{ marginRight: 130 }} onPress={() => navigation.goBack()} />
+              <Ionicons name="chevron-back" size={28} color="black" style={{ marginRight: 110 }} onPress={() => navigation.goBack()} />
               <Text style={styles.text_username}>{userData.username}</Text>
               <Image source={require("../assets/verified.png")} style={{ width: 15, height: 15, marginLeft: 5 }} />
             </View>

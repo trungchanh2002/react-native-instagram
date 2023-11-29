@@ -6,6 +6,22 @@
       "author": "typicode"
     }
   ],
+  "posts": [
+    {
+      "id": 1,
+      "username": "messi_dev",
+      "avatar": "story-1.png",
+      "status": "This is new status",
+      "imagePost": "post-11.png"
+    },
+    {
+      "username": "messi_dev",
+      "avatar": "story-1.png",
+      "status": "Xin chào mọii người",
+      "imagePost": "post-6.png",
+      "id": 2
+    }
+  ],
   "comments": [
     {
       "id": 1,
@@ -51,25 +67,25 @@
   "user": [
     {
       "id": 1,
-      "username": "chanh_dev",
-      "name": "Chanh",
-      "avatar": "story-3.png",
-      "post": "10",
+      "username": "messi_dev",
+      "name": "Lionel Messi",
+      "avatar": "story-1.png",
+      "post": "20",
       "followers": "9,005",
       "following": "88",
-      "bio": "This is Chanh's bio",
-      "hashtag": "hashtag_chanh",
-      "website": "youtube.com/chanhdev",
-      "email": "trungchanh.kda@gmail.com",
+      "bio": "This is Bio's Messi",
+      "hashtag": "hashtag_messi",
+      "website": "youtube.com/messi",
+      "email": "messi.dev@gmail.com",
       "phone": "0787847379",
-      "gender": "Female",
-      "password": "123"
+      "gender": "Nam",
+      "password": "1"
     },
     {
       "id": 2,
-      "username": "an_dev",
-      "name": "chanh1",
-      "avatar": "story-2.png",
+      "username": "ronaldo_dev",
+      "name": "Ronadlo",
+      "avatar": "story-3.png",
       "post": "50",
       "followers": "5,102",
       "following": "102",
@@ -79,12 +95,12 @@
       "email": "trungchanh.kda@gmail.com",
       "phone": "0787847379",
       "gender": "Male",
-      "password": "123456"
+      "password": "1"
     },
     {
       "id": 3,
-      "username": "chanh",
-      "name": "chanh1",
+      "username": "mbappe_dev",
+      "name": "Ronaldo",
       "avatar": "story-3.png",
       "post": "50",
       "followers": "5,102",
@@ -92,16 +108,16 @@
       "bio": "Xin chao",
       "hashtag": "hashtag",
       "website": "twitch.tv/ronaldo",
-      "email": "trungchanh.kda@gmail.com",
+      "email": "ronal.kda@gmail.com",
       "phone": "0787847379",
       "gender": "Male",
-      "password": "123456"
+      "password": "123"
     },
     {
       "id": 4,
-      "username": "chanh",
+      "username": "neymar_dev",
       "name": "chanh1",
-      "avatar": "story-3.png",
+      "avatar": "story-4.png",
       "post": "50",
       "followers": "5,102",
       "following": "102",
@@ -115,9 +131,9 @@
     },
     {
       "id": 5,
-      "username": "chanh",
+      "username": "chanh_dev",
       "name": "chanh1",
-      "avatar": "story-3.png",
+      "avatar": "story-5.png",
       "post": "50",
       "followers": "5,102",
       "following": "102",
@@ -133,7 +149,7 @@
   "stories": [
     {
       "id": 1,
-      "avatar": "avatar_emp_1.png",
+      "avatar": "story-1.png",
       "username": "messi_dev",
       "time": "1hour",
       "image": "post-1.png"
